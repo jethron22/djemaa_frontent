@@ -4,7 +4,7 @@ import "./TrustedBy.scss"
 function TrustedBy() {
   return (
     <div>
-      <div className="flex bg-gray-100 md:none p-10 text-white font-bold text-2xl w-full">
+      <div className="flex bg-gray-100 md:none p-8 text-white font-bold text-2xl w-full">
         
             <div className="flex justify-around w-full">
             <span className='hover:text-green-600 text-gray-400 cursor-pointer duration-200'>+1507 freelances</span>
