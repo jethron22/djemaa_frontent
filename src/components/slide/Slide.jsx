@@ -1,5 +1,4 @@
 import React from "react";
-import "./Slide.scss";
 import Slider from "react-slick"
 import CatCard from "../catCard/CatCard";
 import { cards } from "../data";
@@ -17,7 +16,7 @@ const Slide = () => {
     centerMode : true,
     centerPadding: 0,
     lazyLoad : true,
-    autoplay: true,
+    autoplay: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -48,7 +47,7 @@ const Slide = () => {
     ]
   };
   return (
-   <div className=" w-[90%] m-auto">
+   <div className=" w-[90%] m-auto ">
 
       <Slider {...settings} >
         {cards.map(card => (

@@ -54,7 +54,7 @@ function Navbar() {
                 {currentUser.isSeller && (
                   <>
                     <Link className="link" to="/djemas">
-                      Djemaas
+                      Vos djemaas
                     </Link>
                     <Link className="link" to="/add-djemaa">
                       Ajouter un djemaa

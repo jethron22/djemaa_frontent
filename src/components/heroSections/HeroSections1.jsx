@@ -20,7 +20,7 @@ function HeroSections1() {
             </div>
 
             </div>
-            <div className='w-[100%] items-center flex'>
+            <div className='w-[100%] items-center mt-7 flex'>
             <video src={djemadari_pres} controls/>
             </div>
         </div>

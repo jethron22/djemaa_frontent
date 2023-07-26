@@ -22,10 +22,12 @@ function Home() {
         <div className='w-full'>
           <HeroSections1 />
         </div>
-        <div className='w-full'></div>
+        <div className='w-full'>
         <HeroSection2 />
+        </div>
+       
       </div>
-     <div>
+     <div className='w-[98%]  '>
       <ServiceSlider />
      </div>
     </div>

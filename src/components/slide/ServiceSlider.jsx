@@ -4,25 +4,27 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ServiceCard from "../serviceCard/ServiceCard";
 import { services } from "../data";
-import "./ServiceCard.scss"
+
+import { Link } from "react-router-dom";
 
 const ServiceSlider = () => {
 
+
   const settings = {
     dots: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     centerMode : true,
     centerPadding: 0,
     lazyLoad : true,
-    autoplay: true,
+    autoplay: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true
         }
@@ -47,22 +49,25 @@ const ServiceSlider = () => {
     ]
   };
   return (
-   <div className=" w-[90%] m-auto">
-
+    <div className="flex p-12">
+   <div className=" w-[100%] m-auto ">
       <Slider {...settings} >
         {services.map(item => (
+         <Link to="/djema/123">
           <div className="serviceCard">
            <div className='' key={item.id}>
           <div className="">
-            <div className="flex justify-between">
+            <div className="flex  ">
               <ServiceCard item={item} key={item.id} />
             </div>
           </div>
            </div>
            </div>
+           </Link>
         ))
         }
       </Slider>
+      </div>
       </div>
    
 
