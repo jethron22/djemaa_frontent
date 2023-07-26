@@ -49,7 +49,7 @@ const Slide = () => {
   return (
    <div className=" w-[90%] m-auto ">
 
-      <Slider {...settings} >
+      <Slider {...settings}>
         {cards.map(card => (
           <div className="">
            <div className='' key={card.id}>

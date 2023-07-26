@@ -3,23 +3,22 @@ import "./djema.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {AiFillStar} from "react-icons/ai"
-import {AiOutlineLike} from "react-icons/ai"
-import {AiFillCheckCircle } from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai"
+import { AiOutlineLike } from "react-icons/ai"
+import { AiFillCheckCircle } from "react-icons/ai"
 
 
 function Djema() {
 
-
   const settings = {
     dots: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     initialSlide: 0,
-    centerMode : true,
+    centerMode: true,
     centerPadding: 0,
-    lazyLoad : true,
-    autoplay: false,
+    lazyLoad: true,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -68,28 +67,29 @@ function Djema() {
               < AiFillStar />
               <AiFillStar />
               <AiFillStar />
-              <AiFillStar/>
+              <AiFillStar />
               <AiFillStar />
               <span>5</span>
             </div>
           </div>
-          {/* <div className="slider">
-          <Slider  {...settings}>
-            <img className="img"
-              src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt=""
-            />
-            <img className="img"
-              src="https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt=""
-            />
-            <img className="img"
-              src="https://images.pexels.com/photos/1054777/pexels-photo-1054777.jpeg?auto=compress&cs=tinysrgb&w=1600"
-              alt=""
-            />
-          </Slider>
-          </div> */}
+            <Slider  {...settings}>
+              <div className="">
+                <img className="slider"
+                  src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt=""
+                />
+                <img className="slider"
+                  src="https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt=""
+                />
+                <img className="slider"
+                  src="https://images.pexels.com/photos/1054777/pexels-photo-1054777.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt=""
+                />
+              </div>
+            </Slider>
          
+
           <h2>Au sujet de ce Djema</h2>
           <p>
             I use an AI program to create images based on text prompts. This
@@ -180,9 +180,9 @@ function Djema() {
               </div>
               <div className="stars">
                 <AiFillStar />
-                <AiFillStar/>
                 <AiFillStar />
-                <AiFillStar/>
+                <AiFillStar />
+                <AiFillStar />
                 <AiFillStar />
                 <span>5</span>
               </div>
@@ -222,11 +222,11 @@ function Djema() {
                 </div>
               </div>
               <div className="stars">
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
-                <AiFillStar/>
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
+                <AiFillStar />
                 <span>5</span>
               </div>
               <p>
@@ -239,7 +239,7 @@ function Djema() {
                 <span>Helpful?</span>
                 <AiOutlineLike />
                 <span>Yes</span>
-                <AiOutlineLike/>
+                <AiOutlineLike />
                 <span>No</span>
               </div>
             </div>
@@ -265,9 +265,9 @@ function Djema() {
               <div className="stars">
                 <im />
                 <AiFillStar />
-                <AiFillStar/>
                 <AiFillStar />
-                <AiFillStar/>
+                <AiFillStar />
+                <AiFillStar />
                 <span>5</span>
               </div>
               <p>
@@ -279,7 +279,7 @@ function Djema() {
               </p>
               <div className="helpful">
                 <span>Helpful?</span>
-                <AiOutlineLike/>
+                <AiOutlineLike />
                 <span>Yes</span>
                 <AiOutlineLike />
                 <span>No</span>
@@ -302,25 +302,25 @@ function Djema() {
               <span>2 Days Delivery</span>
             </div>
             <div className="item">
-              <AiOutlineLike/>
+              <AiOutlineLike />
               <span>3 Revisions</span>
             </div>
           </div>
           <div className="features">
             <div className="item">
-              <AiFillCheckCircle  />
+              <AiFillCheckCircle />
               <span>Prompt writing</span>
             </div>
             <div className="item">
-              <AiFillCheckCircle  />
+              <AiFillCheckCircle />
               <span>Artwork delivery</span>
             </div>
             <div className="item">
-              <AiFillCheckCircle  />
+              <AiFillCheckCircle />
               <span>Image upscaling</span>
             </div>
             <div className="item">
-              <AiFillCheckCircle  />
+              <AiFillCheckCircle />
               <span>Additional design</span>
             </div>
           </div>
