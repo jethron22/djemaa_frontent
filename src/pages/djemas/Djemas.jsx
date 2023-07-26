@@ -25,9 +25,9 @@ function Djemas() {
     <div className="djemas">
       <div className="container">
         <span className="breadcrumbs">Djemaa  Graphics & Design </span>
-        <h1>AI Artists</h1>
+        <p className="text-3xl">Photographie</p>
         <p>
-          Explore the boundaries of art and technology with Liverr's AI artists
+          Explorer le monde de la photographie avec des pros.
         </p>
         <div className="menu">
          
@@ -53,7 +53,7 @@ function Djemas() {
             <span>Budget</span>
             <input ref={minRef} type="number" placeholder="min" />
             <input ref={maxRef} type="number" placeholder="max" />
-            <button onClick={apply}>Appliquer</button>
+            <button onClick={apply}>Filtrer</button>
           </div>
         </div>
         <div className="cards">

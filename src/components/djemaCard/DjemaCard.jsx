@@ -7,26 +7,33 @@ import {AiFillStar} from "react-icons/ai"
 const DjemaCard = ({ item }) => {
   return (
     <Link to="/djema/123" className="link">
-      <div className="djemaCard">
+      <div className="djemaCard  hover:bg-slate-200 duration-200">
         <img src={item.img} alt="" />
         <div className="info">
-          <div className="user">
+          <div className="user flex items-center justify-between">
+            <div className="flex items-center gap-3">
             <img src={item.pp} alt="" />
-            <span>{item.username}</span>
+            <span className="font-semibold">{item.username}</span>
+            </div>
+            
+            <div className="flex ">
+            <span><AiOutlineSketch color="green" size={23} /></span>
+            </div>
           </div>
           <p>{item.desc}</p>
-          <div className="star">
-            <AiFillStar />
-            <span>{item.star}</span>
+
+          <div className="flex justify-between w-full items-center">
+            <div className="flex items-center w-24">
+            <span className="flex items-center"><AiFillStar size={17} /></span>
+            <span className="font-bold">{item.star}</span>
+            </div>
+            <div className="price font-semibold">
+            <span>à partir de</span>
+            <p className="text-2xl"> $ {item.price}<sup>99</sup>
+            </p>
           </div>
-        </div>
-        <hr />
-        <div className="detail">
-          <AiOutlineSketch />
-          <div className="price">
-            <span>STARTING AT</span>
-            <h2> $ {item.price}<sup>99</sup>
-            </h2>
+
+
           </div>
         </div>
       </div>

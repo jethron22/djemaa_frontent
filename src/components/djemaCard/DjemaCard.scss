@@ -1,17 +1,22 @@
 .djemaCard {
     width: 280px;
     height: 400px;
-    border: 1px solid rgb(237, 236, 236);
-    margin-bottom: 30px;
+    // border: 1px solid rgb(237, 236, 236);
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
+    border-top-left-radius: 8px ;
+    border-top-right-radius: 8px;
   
     img {
       width: 100%;
-      height: 44%;
+      height: 50%;
+      border-top-left-radius: 8px ;
+      border-top-right-radius: 8px;
       object-fit: cover;
+     
     }
   
     .info {
@@ -19,6 +24,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      border:  1px solid rgb(231, 231, 231);
   
       .user {
         display: flex;

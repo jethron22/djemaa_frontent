@@ -54,18 +54,18 @@ function Navbar() {
                 {currentUser.isSeller && (
                   <>
                     <Link className="link" to="/djemas">
-                      Vos djemaas
+                      Tous les Djemaas
                     </Link>
                     <Link className="link" to="/add-djemaa">
-                      Ajouter un djemaa
+                      Ajouter un Djemaa
                     </Link>
                   </>
                 )}
                 <Link className="link" to="/commandes">
-                  Toutes les commandes
+                  Commandes
                 </Link>
                 <Link className="link" to="/messages">
-                  Vos Messages
+                  Messages
                 </Link>
                 <Link className="link" to="/">
                   Déconnexion
