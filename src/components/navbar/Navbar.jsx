@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
+import jethron from "../../components/img/jethron.png"
 
 function Navbar() {
   const [active, setActive] = useState(false);
@@ -24,7 +25,7 @@ function Navbar() {
 
   const currentUser = {
     id: 1,
-    username: "Julienne",
+    username: "Jethron",
     isSeller: true,
   };
 
@@ -46,7 +47,7 @@ function Navbar() {
           {currentUser ? (
             <div className="user" onClick={()=>setOpen(!open)}>
               <img
-                src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={jethron}
                 alt=""
               />
               <span>{currentUser?.username}</span>

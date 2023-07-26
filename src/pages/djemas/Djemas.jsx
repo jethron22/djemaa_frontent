@@ -6,7 +6,7 @@ import {AiFillCaretDown} from "react-icons/ai"
 
 function Djemas() {
   const [sort, setSort] = useState("sales");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState();
   const minRef = useRef();
   const maxRef = useRef();
 
@@ -27,7 +27,7 @@ function Djemas() {
         <span className="breadcrumbs">Djemaa  Graphics & Design </span>
         <p className="text-3xl">Photographie</p>
         <p>
-          Explorer le monde de la photographie avec des pros.
+          Explorer le monde de la photographie avec ces prestataires
         </p>
         <div className="menu">
          

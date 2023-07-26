@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./djema.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,9 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { AiFillStar } from "react-icons/ai"
 import { AiOutlineLike } from "react-icons/ai"
 import { AiFillCheckCircle } from "react-icons/ai"
+import jethron from "../../components/img/jethron.png"
 
 
 function Djema() {
+
+  const [open, setOpen] = useState(false)
 
   const settings = {
     dots: true,
@@ -54,15 +57,15 @@ function Djema() {
     <div className="djema">
       <div className="container">
         <div className="left">
-          <span className="breadcrumbs">Djemaa  Graphics & Design </span>
-          <h1>I will create ai generated art for you</h1>
+          <span className="breadcrumbs">Djemaa  Photographie </span>
+          <h1>I will create photo capture art for you </h1>
           <div className="user">
             <img
               className="pp"
-              src="https://images.pexels.com/photos/720327/pexels-photo-720327.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              src={jethron}
               alt=""
             />
-            <span>Anna Bell</span>
+            <span>Jethron Kashira</span>
             <div className="stars">
               < AiFillStar />
               <AiFillStar />
@@ -72,23 +75,23 @@ function Djema() {
               <span>5</span>
             </div>
           </div>
-            <Slider  {...settings}>
-              <div className="">
-                <img className="slider"
-                  src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-                <img className="slider"
-                  src="https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-                <img className="slider"
-                  src="https://images.pexels.com/photos/1054777/pexels-photo-1054777.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-              </div>
-            </Slider>
-         
+          <Slider  {...settings}>
+            <div className="">
+              <img className="slider"
+                src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+              <img className="slider"
+                src="https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+              <img className="slider"
+                src="https://images.pexels.com/photos/1054777/pexels-photo-1054777.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+            </div>
+          </Slider>
+
 
           <h2>Au sujet de ce Djema</h2>
           <p>
@@ -107,14 +110,14 @@ function Djema() {
             welcome to send me a message.
           </p>
           <div className="seller">
-            <h2>About The Seller</h2>
+            <h2>Au sujet du prestataire </h2>
             <div className="user">
               <img
-                src="https://images.pexels.com/photos/720327/pexels-photo-720327.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src={jethron}
                 alt=""
               />
               <div className="info">
-                <span>Anna Bell</span>
+                <span>Jethron Kashira</span>
                 <div className="stars">
                   <AiFillStar />
                   <AiFillStar />
@@ -129,29 +132,30 @@ function Djema() {
             <div className="box">
               <div className="items">
                 <div className="item">
-                  <span className="title">From</span>
-                  <span className="desc">USA</span>
+                  <span className="title">Habite à </span>
+                  <span className="desc font-bold">Goma</span>
                 </div>
                 <div className="item">
-                  <span className="title">Member since</span>
-                  <span className="desc">Aug 2022</span>
+                  <span className="title">Membre depuis</span>
+                  <span className="desc font-bold">Aout 2022</span>
                 </div>
                 <div className="item">
-                  <span className="title">Avg. response time</span>
-                  <span className="desc">4 hours</span>
+                  <span className="title">Taux de reponse</span>
+                  <span className="desc font-bold">4 heures</span>
                 </div>
                 <div className="item">
-                  <span className="title">Last delivery</span>
-                  <span className="desc">1 day</span>
+                  <span className="title">Derniere livraison</span>
+                  <span className="desc font-bold">il y a 1 jour</span>
                 </div>
                 <div className="item">
                   <span className="title">Languages</span>
-                  <span className="desc">English</span>
+                  <span className="desc font-bold">English</span>
+                  <span className="desc font-bold">Français</span>
                 </div>
               </div>
               <hr />
               <p>
-                My name is Anna, I enjoy creating AI generated art in my spare
+                My name is Jethron, I enjoy creating AI generated art in my spare
                 time. I have a lot of experience using the AI program and that
                 means I know what to prompt the AI with to get a great and
                 incredibly detailed result.
@@ -288,43 +292,58 @@ function Djema() {
           </div>
         </div>
         <div className="right">
-          <div className="price">
-            <h3>1 AI generated image</h3>
-            <h2>$ 59.99</h2>
-          </div>
-          <p>
-            I will create a unique high quality AI generated image based on a
-            description that you give me
-          </p>
-          <div className="details">
-            <div className="item">
-              <AiOutlineLike />
-              <span>2 Days Delivery</span>
-            </div>
-            <div className="item">
-              <AiOutlineLike />
-              <span>3 Revisions</span>
-            </div>
-          </div>
-          <div className="features">
-            <div className="item">
-              <AiFillCheckCircle />
-              <span>Prompt writing</span>
-            </div>
-            <div className="item">
-              <AiFillCheckCircle />
-              <span>Artwork delivery</span>
-            </div>
-            <div className="item">
-              <AiFillCheckCircle />
-              <span>Image upscaling</span>
-            </div>
-            <div className="item">
-              <AiFillCheckCircle />
-              <span>Additional design</span>
-            </div>
-          </div>
-          <button>Continue</button>
+
+
+          {
+            <p><button className="rounded" onClick={() => setOpen(!open)}>Voir le tarif</button></p>
+            
+          } 
+          {
+            open && (
+              <div>
+                <div className="price">
+                  <h3>Photographie professionnelle</h3>
+                  <h2>$ 59.99</h2>
+                </div>
+                <p>
+                  I will create a unique high quality AI generated image based on a
+                  description that you give me
+                </p>
+                <div className="details">
+                  <div className="item">
+                    <AiOutlineLike />
+                    <span>Livraison dans deux jours</span>
+                  </div>
+                  <div className="item">
+                    <AiOutlineLike />
+                    <span>3 Revisions</span>
+                  </div>
+                </div>
+                <div className="features">
+                  <div className="item">
+                    <AiFillCheckCircle />
+                    <span>Prompt writing</span>
+                  </div>
+                  <div className="item">
+                    <AiFillCheckCircle />
+                    <span>Artwork delivery</span>
+                  </div>
+                  <div className="item">
+                    <AiFillCheckCircle />
+                    <span>Image upscaling</span>
+                  </div>
+                  <div className="item">
+                    <AiFillCheckCircle />
+                    <span>Additional design</span>
+                  </div>
+                </div>
+                <button>Continuer</button>
+              </div>
+
+            )
+          }
+
+
         </div>
       </div>
     </div>
