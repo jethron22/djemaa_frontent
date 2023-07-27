@@ -2,7 +2,10 @@ import React from 'react'
 
 function MyDjemas() {
   return (
-    <div>MyDjemas</div>
+    <div>
+<p>Mes djemas ici</p>
+      
+    </div>
   )
 }
 

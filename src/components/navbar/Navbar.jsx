@@ -60,6 +60,9 @@ function Navbar() {
                     <Link className="link" to="/add-djemaa">
                       Ajouter un Djemaa
                     </Link>
+                    <Link className="link" to="/my-djema">
+                      Mes Djemas
+                    </Link>
                   </>
                 )}
                 <Link className="link" to="/commandes">
