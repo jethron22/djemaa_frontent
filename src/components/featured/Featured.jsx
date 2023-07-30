@@ -13,9 +13,9 @@ function Featured() {
             Trouvez un <span className="text-green-400">talent</span> Pour realiser votre business
           </h1>
           <div className="search">
-            <div className="searchInput">
+            <div className="searchInput w-[470px] border-none">
               <img src="./img/icon-search.png" alt="" />
-              <input type="text" placeholder='Tapez par ex. "Création logo "' /> 
+              <input className="" type="text" placeholder='Tapez par ex. "Création logo "' /> 
             </div>
             <button>Recherche</button>
           </div>

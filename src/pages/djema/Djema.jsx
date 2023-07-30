@@ -5,13 +5,20 @@ import { AiFillStar } from "react-icons/ai"
 import { AiOutlineLike } from "react-icons/ai"
 import { AiFillCheckCircle, AiOutlineProfile } from "react-icons/ai"
 import jethron from "../../components/img/jethron.jpg"
-import UserCardPayement from "./UserCardPayement";
-import {AiOutlineMessage} from "react-icons/ai"
+import { AiOutlineMessage } from "react-icons/ai"
+import ChatMessage from "../message/ChatMessage";
+import { useNavigate } from "react-router-dom";
 
 
 function Djema() {
 
   const [open, setOpen] = useState(false)
+
+  const navigate = useNavigate();
+ 
+  const handleNavigate =()=> {
+    navigate("/messages")
+  }
 
 
 
@@ -265,9 +272,10 @@ function Djema() {
           {!open && (
 
             <div>
+
               <div className="">
                 <div class="max-w-2xl top-0  mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white rounded-lg text-gray-900">
-                  
+
                   <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
                     <img class="object-cover object-center h-32" src={jethron} alt='Woman looking front' />
                   </div>
@@ -295,15 +303,15 @@ function Djema() {
                       <div>15</div>
                     </li>
                   </ul>
-                  <div class=" flex justify-between p-4 border-t mx-8  mt-2">
-                    <span><button className=" flex bg-green-700 border-2 border-green-700 text-white font-semibold p-3 items-center gap-1 rounded w-32"><span><AiOutlineMessage /></span> Message <span></span></button></span>
 
-                    <span className=""><button onClick={()=> setOpen(!open)} className="flex  items-center  font-semibold p-3 border-gray-600 border-2 text-slate-600 gap-1 rounded w-32"><span><AiOutlineProfile /></span> Mon tarif <span></span></button></span>
-                  
+                  <div class=" flex p-4 border-t mx-8  mt-5">
+                    <div className=" w-full">
+                      <p className=""><button onClick={() => setOpen(!open)} className="flex justify-center  items-center  font-semibold p-3  text-white gap-1 w-full rounded bg-slate-600"><span><AiOutlineProfile /></span> Mon tarif <span></span></button></p>
+                    </div>
                   </div>
                 </div>
               </div>
-             
+
             </div>
           )
 
@@ -312,6 +320,7 @@ function Djema() {
           {
             open && (
               <div>
+
                 <div className="price">
                   <p className="font-semibold text-1xl">Photographie professionnelle</p>
                   <h2>$ 59.99</h2>
@@ -348,7 +357,14 @@ function Djema() {
                     <span>Additional design</span>
                   </div>
                 </div>
-                <button className="bg-green-700 p-3 w-full text-white font-semibold rounded mt-5">Continuer</button>
+
+                <div className="flex items-center justify-between">
+                  <span><button onClick={()=> handleNavigate()} className=" flex bg-slate-700 mt-5  text-white font-semibold p-3 items-center gap-1 rounded w-32"><span><AiOutlineMessage /></span> Message <span></span></button></span>
+
+
+                  <button className="bg-green-700 p-3 w-36 text-white font-semibold rounded mt-5">Continuer</button>
+                </div>
+                
               </div>
 
             )

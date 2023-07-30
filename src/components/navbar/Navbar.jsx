@@ -1,14 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
-import jethron from "../../components/img/jethron.png"
+import { AiFillCaretDown } from "react-icons/ai"
+import newRequest from "../../utils/newRequest";
+
 
 function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();
+
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+
+    try {
+
+      await newRequest.post("/auth/logout")
+      localStorage.setItem("currentUser", null);
+
+      navigate("/")
+
+    } catch (error) {
+
+    }
+  }
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -23,16 +41,12 @@ function Navbar() {
 
   // const currentUser = null
 
-  const currentUser = {
-    id: 1,
-    username: "Jethron",
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
   return (
-    
+
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
-      
+
       <div className="container">
         <div className="logo">
           <Link className="link" to="/">
@@ -45,16 +59,17 @@ function Navbar() {
           <span>English</span>
           {!currentUser?.isSeller && <span>Devenir vendeur</span>}
           {currentUser ? (
-            <div className="user" onClick={()=>setOpen(!open)}>
+            <div className="user" onClick={() => setOpen(!open)}>
               <img
-                src={jethron}
-                alt=""
+                src={currentUser.img}
+              // alt="user image"
               />
-              <span>{currentUser?.username}</span>
+              <span className="font-semibold"> Bonjour {currentUser?.username}</span>
+              <span><AiFillCaretDown /></span>
               {open && <div className="options">
                 {currentUser.isSeller && (
                   <>
-                    <Link className="link" to="/djemas">
+                    <Link className="link" to="/djemas?search">
                       Tous les Djemaas
                     </Link>
                     <Link className="link" to="/add-djemaa">
@@ -71,16 +86,19 @@ function Navbar() {
                 <Link className="link" to="/messages">
                   Messages
                 </Link>
-                <Link className="link" to="/">
+                <Link className="link" onClick={handleLogout}>
                   Déconnexion
                 </Link>
               </div>}
             </div>
           ) : (
             <>
-              <span>S'identifier</span>
+              <Link to="/login" className="link">
+                <span className="font-semibold hover:text-green-400">Se connecter</span>
+              </Link>
+
               <Link className="link" to="/register">
-                <button>Rejoindre</button>
+                <button className="hover:bg-green-700 font-semibold hover:font-semibold duration-200 hover:text-white p-2 rounded">Rejoindre</button>
               </Link>
             </>
           )}

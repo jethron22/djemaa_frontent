@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import "./CatCard.scss";
 
 function CatCard({ item }) {
+  
   return (
 
     <div>
 
       <div className="catCard">
-        <Link to="/djema?cat=design">
+        <Link to="/djemas?cat">
           <img src={item.img} alt="" />
           <span className="desc">{item.desc}</span>
           <span className="title">{item.title}</span>

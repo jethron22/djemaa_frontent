@@ -1,9 +1,12 @@
 import React from 'react'
 import './messages.scss'
+import ChatComponent from '../message/ChatComponent'
 
 function Messages() {
   return (
-    <div>Messages</div>
+    <div>
+      <ChatComponent />
+    </div>
   )
 }
 

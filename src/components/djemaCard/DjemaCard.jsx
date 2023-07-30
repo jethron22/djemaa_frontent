@@ -3,12 +3,26 @@ import "./DjemaCard.scss";
 import { Link } from "react-router-dom";
 import {AiOutlineSketch} from "react-icons/ai"
 import {AiFillStar} from "react-icons/ai"
+// import { useQuery } from "@tanstack/react-query";
+// import newRequest from "../../utils/newRequest";
 
 const DjemaCard = ({ item }) => {
+
+  // const { error, data, isLoading } = useQuery({
+  
+  //     queryKey: [item.userId],
+  //     queryFn: () =>
+  //       newRequest.get(`/users/${item.userId}`).then((res) => {
+  //         return res.data;
+  //       }),
+  //   });
+
+ 
+
   return (
     <Link to="/djema/123" className="link">
       <div className="djemaCard  hover:bg-slate-200 duration-200">
-        <img src={item.img} alt="" />
+        <img src={item.cover} alt="" />
         <div className="info">
           <div className="user flex items-center justify-between">
             <div className="flex items-center gap-3">

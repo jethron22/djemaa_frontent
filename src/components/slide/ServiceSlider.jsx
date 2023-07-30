@@ -54,11 +54,11 @@ const ServiceSlider = () => {
       <Slider {...settings} >
         {services.map(item => (
          <Link to="/djema/123">
-          <div className="serviceCard">
-           <div className='' key={item.id}>
+          <div className="serviceCard " key={item.id}>
+           <div className=''>
           <div className="">
             <div className="flex  ">
-              <ServiceCard item={item} key={item.id} />
+              <ServiceCard item={item}  />
             </div>
           </div>
            </div>
