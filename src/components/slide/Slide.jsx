@@ -47,7 +47,7 @@ const Slide = () => {
     ]
   };
   return (
-   <div className=" w-[90%] m-auto ">
+   <div className=" w-[1250px] m-auto ">
 
       <Slider {...settings}>
         {cards.map(card => (

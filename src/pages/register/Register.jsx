@@ -46,7 +46,7 @@ function Register() {
         // img: url
       });
 
-      navigate("/")
+      navigate("/login")
 
     } catch (error) {
       console.log(error)
@@ -61,20 +61,20 @@ function Register() {
           <div className='flex flex-col w-72 '>
             <p className='text-3xl text-gray-600 font-bold'>Créer un nouveau compte</p>
             <br />
-            <p>
+            <p >
               <label htmlFor=''>Nom</label>
               <br />
-              <input onChange={handleChange} placeholder='ex: william' className='w-full  border-none bg-slate-200' type='text' name='username'></input>
+              <input onChange={handleChange} placeholder='ex: william' className='w-full rounded  border-none bg-slate-200' type='text' name='username'></input>
             </p>
             <p>
               <label htmlFor=''>Email</label>
               <br />
-              <input onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='w-full border-none bg-slate-200'  type='email' name='email'></input>
+              <input onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='rounded   w-full border-none bg-slate-200'  type='email' name='email'></input>
             </p>
             <p>
               <label htmlFor=''>Mot de passe</label>
               <br />
-              <input onChange={handleChange} placeholder='mettez un mot de passe' className='w-full border-none bg-slate-200' type='password' name='password'></input>
+              <input onChange={handleChange} placeholder='mettez un mot de passe' className='rounded   w-full border-none bg-slate-200' type='password' name='password'></input>
             </p>
             {/* <p className=''>
             <label htmlFor=''>Photo de profil</label>
@@ -84,7 +84,7 @@ function Register() {
             <p>
               <label htmlFor=''>Pays</label>
               <br />
-              <input onChange={handleChange} placeholder='votre pays ici..' className='w-full border-none bg-slate-200' type='text' name='country'></input>
+              <input onChange={handleChange} placeholder='votre pays ici..' className='rounded w-full border-none bg-slate-200' type='text' name='country'></input>
             </p>
             <p>
 
@@ -101,9 +101,9 @@ function Register() {
           <div className='flex flex-col w-72'>
             <p className='text-3xl font-bold text-gray-600 '>Je souhaite devenir prestataire</p>
             <br />
-            <p className='flex justify-between'>
+            <p className='flex justify-between mb-3'>
               <span className=''>
-                <label htmlFor=''>Actver un compte prestataire</label>
+                <label className='font-semibold text-green-500 ' htmlFor=''>Activer un compte prestataire</label>
               </span>
               <span>
 
@@ -112,15 +112,15 @@ function Register() {
 
             </p>
 
-            <p>
+            <p className='mb-3'>
               <label htmlFor=''>Téléphone</label>
               <br />
-              <input onChange={handleChange} placeholder='ex: +243971154076' className='w-full border-none bg-slate-200' type='number' name='phone'></input>
+              <input onChange={handleChange} placeholder='ex: +243971154076' className='rounded w-full border-none bg-slate-200' type='number' name='phone'></input>
             </p>
             <p>
               <label htmlFor=''>Description de vous</label>
               <br />
-              <textarea onChange={handleChange} className='w-full h-[150px] border-none bg-slate-200 ' placeholder='derivez vous ici en tant que prestataire de service. Ceci apparaitra sur votre profil.' type='text' name='desc'></textarea>
+              <textarea onChange={handleChange} className='w-full rounded h-[150px] border-none bg-slate-200 ' placeholder='...Decrivez-vous ici en tant que prestataire de service. Ceci apparaitra sur votre profil.' type='text' name='desc'></textarea>
             </p>
           </div>
 

@@ -4,6 +4,8 @@ import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
 import newRequest from "../../utils/newRequest";
+import { AiOutlineLogin } from "react-icons/ai";
+import { BsPersonFillCheck } from "react-icons/bs";
 
 
 function Navbar() {
@@ -94,11 +96,19 @@ function Navbar() {
           ) : (
             <>
               <Link to="/login" className="link">
-                <span className="font-semibold hover:text-green-400">Se connecter</span>
-              </Link>
+                <div className="flex items-center duration-150  hover:text-green-400 gap-1">
+                  <span className="font-semibold">Se connecter</span>
+                  <span><AiOutlineLogin size={20} /></span>
+                </div>
+                
+              </Link> 
 
               <Link className="link" to="/register">
-                <button className="hover:bg-green-700 font-semibold hover:font-semibold duration-200 hover:text-white p-2 rounded">Rejoindre</button>
+                <div className="flex items-center px-3 hover:text-white duration-150 hover:bg-green-700 p-2 rounded gap-1">
+                  <span> <button className=" font-semibold rounded">Rejoindre</button></span>
+                  <span><BsPersonFillCheck size={20}  /></span>
+                </div>
+               
               </Link>
             </>
           )}

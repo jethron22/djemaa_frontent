@@ -7,7 +7,7 @@ import HeroSections1 from '../../components/heroSections/HeroSections1'
 import HeroSection2 from '../../components/heroSections/HeroSection2'
 import HeroSection3 from '../../components/heroSections/HeroSection3'
 import ServiceSlider from '../../components/slide/ServiceSlider'
-import ServiceCard from '../../components/serviceCard/ServiceCard'
+
 
 function Home() {
   return (
