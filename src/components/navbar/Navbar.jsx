@@ -22,6 +22,7 @@ function Navbar() {
 
       await newRequest.post("/auth/logout")
       localStorage.setItem("currentUser", null);
+      
 
       navigate("/")
 
@@ -42,6 +43,7 @@ function Navbar() {
   }, []);
 
   // const currentUser = null
+
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
@@ -66,7 +68,7 @@ function Navbar() {
                 src={currentUser.img}
               // alt="user image"
               />
-              <span className="font-semibold"> Bonjour {currentUser?.username}</span>
+              <span className="font-semibold"> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
               {open && <div className="options">
                 {currentUser.isSeller && (

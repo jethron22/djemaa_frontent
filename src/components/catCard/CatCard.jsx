@@ -7,7 +7,6 @@ function CatCard({ item }) {
   return (
 
     <div>
-
       <div className="catCard">
         <Link to="/djemas?cat">
           <img src={item.img} alt="" />

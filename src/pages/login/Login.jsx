@@ -19,7 +19,9 @@ function Login() {
     try {
 
       const res = await newRequest.post("/auth/login", { username, password });
+
       localStorage.setItem("currentUser", JSON.stringify(res.data));
+
       navigate("/")
 
     } catch (error) {
@@ -34,7 +36,8 @@ function Login() {
 
       <div class="rounded w-[1200px] py-12 px-12 m-auto flex items-center justify-between">
 
-        <div className='lefto w-[50%] mt-[80px]'>
+        <div className='left w-[50%] mt-[80px]'>
+
           <div>
             <span className='font-extrabold bg-blend-multiply text-6xl text-gray-500'>Connectez-vous maintenant !</span>
           </div>

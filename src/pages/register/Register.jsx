@@ -46,7 +46,9 @@ function Register() {
         // img: url
       });
 
-      navigate("/login")
+      JSON.stringify(localStorage.setItem("registerUser", user.username));
+
+      navigate("/welcome")
 
     } catch (error) {
       console.log(error)

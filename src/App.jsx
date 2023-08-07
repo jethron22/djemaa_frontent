@@ -17,6 +17,7 @@ import {
   QueryClientProvider,
 
 } from '@tanstack/react-query'
+import WelcomePage from "./pages/register/WelcomePage";
 
 
 
@@ -68,10 +69,7 @@ function App() {
           path: "/add-djemaa",
           element: <Addjema />
         },
-        {
-          path: "/messages",
-          element: <Messages />
-        },
+   
         {
           path: "/message/:id",
           element: <Message />
@@ -88,11 +86,26 @@ function App() {
           element: <Register />
         },
 
+        {
+          path: "/messages",
+          element: <Messages />,
+          
+        },
+
+      
+
       ]
 
 
     },
 
+   
+
+    {
+      path: "/welcome",
+      element: <WelcomePage />
+    },
+ 
 
   ])
 

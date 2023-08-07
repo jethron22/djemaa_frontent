@@ -10,7 +10,7 @@ function HeroSections1() {
         <div className="flex  w-[1300px] justify-between gap-5">
 
             <div className='flex flex-wrap mx-[55px] w-full mt-20 mb-20 '>
-            <p className='flex flex-wrap  text-6xl font-extrabold'>Des<span className=' text-green-600'> freelances </span> pret à travailler avec vous !</p>
+            <p className='flex flex-wrap  text-6xl font-extrabold'>Des<span className=' text-green-600 ml-3'>freelances </span> pret à travailler avec vous !</p>
             <p className='mt-10 w-[80%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nemo quaerat iusto doloribus saepe dolores! Nemo earum sequi provident odit, reiciendis dolor enim dolorem molestiae voluptate dolore pariatur nostrum veritatis!</p>
 
             <div className='mt-10'>

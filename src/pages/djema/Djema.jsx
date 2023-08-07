@@ -4,12 +4,11 @@ import 'react-slideshow-image/dist/styles.css'
 import { AiFillStar } from "react-icons/ai"
 import { AiOutlineLike } from "react-icons/ai"
 import { AiFillCheckCircle, AiOutlineProfile } from "react-icons/ai"
-import jethron from "../../components/img/jethron.jpg"
 import { AiOutlineMessage } from "react-icons/ai"
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
-
+import Reviews from "../../components/reviews/Reviews";
 
 
 function Djema() {
@@ -22,24 +21,23 @@ function Djema() {
     queryFn: () =>
       newRequest.get(`/djemas/single/${id}`).then((res) => {
         return res.data;
+
       }),
 
   });
+
+
+  const userId = data?.userId;
 
   const { error: erroUser, data: dataUser, isLoading: isLoadingUser } = useQuery({
 
     queryKey: ["user"],
     queryFn: () =>
-      newRequest.get(`/users/${data.userId}`).then((res) => {
+      newRequest.get(`/users/${userId}`).then((res) => {
         return res.data;
       }),
-
+    enabled: !!userId,
   });
-
-
-
-
-  console.log(data)
 
   const [open, setOpen] = useState(false)
 
@@ -57,7 +55,7 @@ function Djema() {
 
         ?
 
-        <div className="flex items-center mt-24"><span className="mr-3 font-semibold text-green-600"> Chargement du djema </span>
+        <div className="flex items-center mt-24"><span className="mr-3 font-semibold text-green-600"> Loading.. </span>
           <div
             class=" flex text-green-600 h-8 w-8 animate-spin  rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status">
@@ -75,13 +73,13 @@ function Djema() {
 
           <div className="mt-24 text-red-500 font-semibold">
             <p>
-              
-              Erreur lors de chargement de ce djema 
+
+              Erreur lors de chargement de ce djema
 
             </p>
           </div>
-          : 
-          
+          :
+
           <div className="container">
             <div className="left">
               <span className="breadcrumbs"> {data?.cat} </span>
@@ -93,12 +91,12 @@ function Djema() {
 
                 : erroUser ?
 
-                  "Quelque chose n'a pas marché !"
+                  "chargement de l'utilisateur..."
 
                   : <div className="user">
                     <img
                       className="pp"
-                      src={jethron}
+                      src="https://img.freepik.com/photos-gratuite/concept-banniere-homme-affaires-espace-copie_23-2149601460.jpg?w=740&t=st=1691255807~exp=1691256407~hmac=1c50bf0e0d5b7c070cd7159ddcd36eb50a27ad7c52c9056978bc48ac233fc940"
                       alt=""
                     />
 
@@ -109,14 +107,12 @@ function Djema() {
                     <div className="stars items-center">
                       {!isNaN(data?.starNumber) && data?.starNumber !== 0 ? (
 
-
                         <div className="stars items-center">
                           {Array(Math.round(data?.totalStars / data?.starNumber))
                             .fill()
                             .map((item, i) => (
                               <AiFillStar key={i} />
                             ))}
-
 
                           <span>{Math.round(data?.totalStars / data?.starNumber)}
                           </span>
@@ -145,17 +141,15 @@ function Djema() {
 
               </div>
 
-
               <h2>Au sujet de ce Djema</h2>
               <p>
                 {data?.desc}
               </p>
-              {isLoadingUser ? "Chargement en cours.." : erroUser ? "Quelque chose n'a pas marché !" : <div className="seller">
+              {isLoadingUser ? "Chargement en cours.." : erroUser ? "chargement de l'utilisateur..." : <div className="seller">
                 <h2>Au sujet du prestataire </h2>
                 <div className="user">
                   <img
-                    src={dataUser?.img || <AiFillCheckCircle />}
-                    alt="image de utilisateur"
+                    src={dataUser?.img}
                   />
                   <div className="info">
                     <span>{dataUser?.username}</span>
@@ -168,14 +162,13 @@ function Djema() {
                               <AiFillStar key={i} />
                             ))}
 
-
                           <span>{Math.round(data?.totalStars / data?.starNumber)}</span>
                         </div>
                       ) : null}
                     </div>
-                  
+
                     <button>Contacter ce prestataire</button>
-                    
+
                   </div>
                 </div>
                 <div className="box">
@@ -204,138 +197,11 @@ function Djema() {
                   </div>
                   <hr />
                   <p>
-                   {data?.desc}
+                    {data?.desc}
                   </p>
                 </div>
               </div>}
-              <div className="reviews">
-                <h2>Reviews</h2>
-                <div className="item">
-                  <div className="user">
-                    <img
-                      className="pp"
-                      src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                      alt=""
-                    />
-                    <div className="info">
-                      <span>Garner David</span>
-                      <div className="country">
-                        <img
-                          src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png"
-                          alt=""
-                        />
-                        <span>United States</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="stars">
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <span>5</span>
-                  </div>
-                  <p>
-                    I just want to say that art_with_ai was the first, and after
-                    this, the only artist Ill be using on Fiverr. Communication was
-                    amazing, each and every day he sent me images that I was free to
-                    request changes to. They listened, understood, and delivered
-                    above and beyond my expectations. I absolutely recommend this
-                    gig, and know already that Ill be using it again very very soon
-                  </p>
-                  <div className="helpful">
-                    <span>Helpful?</span>
-                    <AiOutlineLike />
-                    <span>Yes</span>
-                    <AiFillStar />
-                    <span>No</span>
-                  </div>
-                </div>
-                <hr />
-                <div className="item">
-                  <div className="user">
-                    <img
-                      className="pp"
-                      src="https://images.pexels.com/photos/4124367/pexels-photo-4124367.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                      alt=""
-                    />
-                    <div className="info">
-                      <span>Sidney Owen</span>
-                      <div className="country">
-                        <img
-                          src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png"
-                          alt=""
-                        />
-                        <span>Germany</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="stars">
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <span>5</span>
-                  </div>
-                  <p>
-                    The designer took my photo for my book cover to the next level!
-                    Professionalism and ease of working with designer along with
-                    punctuality is above industry standards!! Whatever your project
-                    is, you need this designer!
-                  </p>
-                  <div className="helpful">
-                    <span>Helpful?</span>
-                    <AiOutlineLike />
-                    <span>Yes</span>
-                    <AiOutlineLike />
-                    <span>No</span>
-                  </div>
-                </div>
-                <hr />
-                <div className="item">
-                  <div className="user">
-                    <img
-                      className="pp"
-                      src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                      alt=""
-                    />
-                    <div className="info">
-                      <span>Lyle Giles </span>
-                      <div className="country">
-                        <img
-                          src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                          alt=""
-                        />
-                        <span>United States</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="stars">
-                    <im />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <AiFillStar />
-                    <span>5</span>
-                  </div>
-                  <p>
-                    Amazing work! Communication was
-                    amazing, each and every day he sent me images that I was free to
-                    request changes to. They listened, understood, and delivered
-                    above and beyond my expectations. I absolutely recommend this
-                    gig, and know already that Ill be using it again very very soon
-                  </p>
-                  <div className="helpful">
-                    <span>Helpful?</span>
-                    <AiOutlineLike />
-                    <span>Yes</span>
-                    <AiOutlineLike />
-                    <span>No</span>
-                  </div>
-                </div>
-              </div>
+              <Reviews djemaId={id} />
             </div>
             <div className="right">
 
@@ -348,7 +214,7 @@ function Djema() {
                     <div class="max-w-2xl top-0  mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white rounded-lg text-gray-900">
 
                       <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-                        <img class="object-cover object-center h-32" src={jethron} alt='Woman looking front' />
+                        <img class="object-cover object-center h-32" src="https://img.freepik.com/photos-gratuite/concept-banniere-homme-affaires-espace-copie_23-2149601460.jpg?w=740&t=st=1691255807~exp=1691256407~hmac=1c50bf0e0d5b7c070cd7159ddcd36eb50a27ad7c52c9056978bc48ac233fc940" alt='Woman looking front' />
                       </div>
                       <div class="text-center mt-2">
                         <h2 class="font-semibold">{dataUser?.username}</h2>

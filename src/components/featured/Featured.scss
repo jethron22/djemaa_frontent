@@ -1,123 +1,126 @@
 .featured {
-    height: 600px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    background-color:  #1c2d64;
-    color: white;
-  
-    .container {
+  height: 600px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #1c2d64;
+  color: white;
 
-      justify-content: space-between;
-      width: 1300px;
+  .container {
+
+    justify-content: space-between;
+    width: 1300px;
+    display: flex;
+    align-items: center;
+
+
+    .left {
+
       display: flex;
-      align-items: center;
-     
-  
-      .left {
-       
-        display: flex;
-        width: 50%;
-        flex-direction: column;
-        gap: 30px;
-        
-        padding-bottom: 20px;
-  
-        h1 {
-          font-size: 50px;
-  
-          span {
-            font-style: italic;
-            font-weight: 300;
-          }
-        }
-  
-        .search {
-          background-color: white;
-          border-radius: 5px;
-          display: flex;
-          color: black;
-          align-items: center;
-          justify-content: space-between;
-          overflow: hidden;
-  
-          .searchInput {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            img {
-              width: 20px;
-              height: 20px;
-              margin-left: 7px;
-              
-            }
-  
-            input {
-              border: none;
-              outline: none;
-              width: 100%;
-              &::placeholder {
-                color: gray;
-              }
-            }
-          }
-  
-          button {
-            width: 120px;
-            height: 50px;
-            border: none;
-            background-color: #58a544;
-            color: white;
-            align-self: flex-end;
-            cursor: pointer;
-          }
-        }
-  
-        .categories {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          gap: 10px;
-          margin-top: 20px;
-          width: 100%;
-  
-          span {
-            width: max-content;
-          }
-  
-          button {
-            cursor: pointer;
-            width: max-content;
-            color: white;
-            border: 1px solid white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background-color: transparent;
-            font-size: 14px;
-          }
+      width: 50%;
+      flex-direction: column;
+      gap: 30px;
+
+      padding-bottom: 20px;
+
+      h1 {
+        font-size: 50px;
+
+        span {
+          font-style: italic;
+          font-weight: 300;
         }
       }
-  
-      .right {
-        height: 100%;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
+
+      .search {
+        background-color: white;
+        border-radius: 5px;
+        display: flex;
+        color: black;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+
+        .searchInput {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            margin-left: 7px;
+
+          }
+
+          input {
+            border: none;
+            outline: none;
+            width: 100%;
+
+            &::placeholder {
+              color: gray;
+            }
+          }
         }
+
+        button {
+          width: 120px;
+          height: 50px;
+          border: none;
+          background-color: #58a544;
+          color: white;
+          align-self: flex-end;
+          cursor: pointer;
+        }
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        width: 100%;
+
+        span {
+          width: max-content;
+        }
+
+        button {
+          cursor: pointer;
+          width: max-content;
+          color: white;
+          border: 1px solid white;
+          padding: 5px 10px;
+          border-radius: 20px;
+          background-color: transparent;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .right {
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+
       }
     }
   }
 
   @media (max-width: 480px) {
     .right {
-        display: none;
+      display: none;
 
-        img {
-          display: none;
-        }
-        
+      img {
+        display: none;
+      }
+
     }
 
     .left {
@@ -125,16 +128,11 @@
       width: 100%;
       flex-direction: column;
       justify-content: center;
-       margin: auto;
+      margin: auto;
 
       h1 {
         display: none;
       }
     }
-
-  
-
-
+  }
 }
-
-  
