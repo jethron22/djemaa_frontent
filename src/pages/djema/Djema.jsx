@@ -55,7 +55,7 @@ function Djema() {
 
         ?
 
-        <div className="flex items-center mt-24"><span className="mr-3 font-semibold text-green-600"> Loading.. </span>
+        <div className="flex items-center mt-20"><span className="mr-3 font-semibold text-green-600"> Chargement du Djemaa.. </span>
           <div
             class=" flex text-green-600 h-8 w-8 animate-spin  rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status">
@@ -71,7 +71,7 @@ function Djema() {
 
           ?
 
-          <div className="mt-24 text-red-500 font-semibold">
+          <div className="mt-20 text-red-500 font-semibold">
             <p>
 
               Erreur lors de chargement de ce djema

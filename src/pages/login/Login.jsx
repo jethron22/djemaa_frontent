@@ -32,8 +32,9 @@ function Login() {
   }
 
   return (
-    <div>
 
+
+    <div>
       <div class="rounded w-[1200px] py-12 px-12 m-auto flex items-center justify-between">
 
         <div className='left w-[50%] mt-[80px]'>
@@ -74,6 +75,8 @@ function Login() {
         </div>
       </div>
     </div>
+
+    
   )
 }
 

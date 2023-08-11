@@ -6,11 +6,11 @@ function Featured() {
 
  
   return (
-    <div className="featured bg-orange-800 hover:bg-[#1c2d64] duration-1000">
+    <div className="featured">
       <div className="container ">
         <div className="left">
           <h1 className="tracking-tight font-extrabold">
-            Trouvez un <span className="text-green-400">talent</span> Pour realiser votre business
+          Rencontrez un <span className="text-green-400">talent </span> sérieux pour lancer votre business
           </h1>
           <div className="search">
             <div className="searchInput w-[470px]">
@@ -20,7 +20,7 @@ function Featured() {
             <button>Rechercher</button>
           </div>
           <div className="categories">
-            <button>toutes les Categories</button>
+            <button>Toutes les Categories</button>
             <button>Design web</button>
             <button>WordPress</button>
             <button>Conception logo</button>

@@ -57,11 +57,11 @@ function Navbar() {
             <img className="" src={logo_djemadari} alt="" />
           </Link>
         </div>
-        <div className="links">
-          <span>Djemaa Business</span>
-          <span>Parcourir</span>
-          <span>English</span>
-          {!currentUser?.isSeller && <span>Devenir vendeur</span>}
+        <div className="links gap-0">
+         <span className="font-semibold cursor-pointer">Djemaa Business</span>
+          <span className="font-semibold cursor-pointer">Parcourir</span>
+          <span className="font-semibold cursor-pointer">English</span>
+          {!currentUser?.isSeller && <span className="font-semibold cursor-pointer">Devenir vendeur</span>}
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
               <img

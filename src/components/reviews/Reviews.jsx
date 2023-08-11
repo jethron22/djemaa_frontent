@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import "./Reviews.scss"
 import SingleReview from '../review/SingleReview'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -7,9 +7,9 @@ import newRequest from '../../utils/newRequest';
 
 
 
-
 function Reviews({ djemaId }) {
 
+    const [Error, setError] = useState(null)
 
     const queryClient = useQueryClient()
 
@@ -20,31 +20,41 @@ function Reviews({ djemaId }) {
         queryFn: () =>
             newRequest.get(`/reviews/${djemaId}`).then((res) => {
                 return res.data;
+            }).catch((error) => {
+                setError(error.response.data)
             }),
 
     });
 
+
     const mutation = useMutation({
         mutationFn: (review) => {
-          return newRequest.post('/reviews', review)
+            return newRequest.post('/reviews', review)
         },
 
-        onSuccess:()=> {
+        onSuccess: () => {
 
             queryClient.invalidateQueries(["reviews"])
 
         }
-      })
 
-    const handleSubmit =(e)=> {
+    })
+
+
+
+
+    const handleSubmit = (e) => {
 
         e.preventDefault();
 
         const desc = e.target[0].value;
         const star = e.target[1].value;
-        mutation.mutate({djemaId, desc, star})
+        mutation.mutate({ djemaId, desc, star })
+
+
 
     }
+
 
 
     return (
@@ -63,18 +73,49 @@ function Reviews({ djemaId }) {
 
                 <p>Ajouter une Critique</p>
                 <div className='mt-5'>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Que pensez-vous de ce prestataire ?' />
-                    <select name="" id="">
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                    </select>
-                    <button>envoyer</button>
-                </form>
-                <div></div>
+
+
+                    {isLoading ? "Loading" : error ? "Vous avez déjà déposé une critique pour ce prestataire !" : <form onSubmit={handleSubmit}>
+
+                        <div>
+                            <label for="Critiques" class="sr-only">Critiques</label>
+
+                            <div
+                                class="overflow-hidden rounded-lg border border-gray-200 shadow-sm focus-within:border-green-800 focus-within:ring-1 focus-within:ring-green-700"
+                            >
+                                <textarea
+                                    id="OrderNotes"
+                                    class="w-full resize-none border-none align-top focus:ring-0 sm:text-sm"
+                                    rows="4"
+                                    placeholder="Que pensez-vous de ce prestataire ?..."
+                                ></textarea>
+
+                                <div class="flex items-center justify-end gap-2 bg-white p-3">
+
+                                    <select name="" id="">
+                                        <option value={1}>1</option>
+                                        <option value={2}>2</option>
+                                        <option value={3}>3</option>
+                                        <option value={4}>4</option>
+                                        <option value={5}>5</option>
+                                    </select>
+                                    <button
+                                        type="button"
+                                        class="rounded bg-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-gray-600"
+                                    >
+                                        Effacer
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        class="rounded bg-green-700 px-3 py-1.5 text-sm font-medium text-white hover:bg-green-700"
+                                    >
+                                        Envoyer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>}
+                 {Error && error}
                 </div>
             </div>
         </div>
