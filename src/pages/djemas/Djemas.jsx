@@ -84,19 +84,19 @@ function Djemas() {
 
               {isLoading ?
                 <div className="flex justify-center items-center m-auto mt-12 ">
-                  <span className="mr-3 font-semibold text-green-600"> Loading.. </span>
+                
                   <div
                     class=" flex text-green-600 h-8 w-8 animate-spin  rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status">
-
+                        
                     <span
                       class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-                    ></span
-                    >
+                    ></span>
+                    
                   </div>
+                  <span className="mr-3 ml-3 font-semibold text-green-600"> Chargement.. </span>
                 </div> : error ? <div className="justify-center items-center m-auto mt-20"><div className="font-semibold text-red-600">Erreur lors de chargement des djemas !</div></div> : data.map((djema) => (
                   <DjemaCard key={djema._id} item={djema} />
-
                 ))}
             </div>
             <div>

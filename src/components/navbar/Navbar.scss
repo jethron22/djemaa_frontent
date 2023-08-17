@@ -11,7 +11,18 @@
 
     &.active {
         background-color: white;
-        color: black;
+        color: white;
+        .links {
+            color: black;
+        }
+
+        .join {
+            color: white;
+        }
+
+        .joinIcon{
+            color: white;
+        }
 
     }
 

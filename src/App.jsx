@@ -20,8 +20,6 @@ import {
 import WelcomePage from "./pages/register/WelcomePage";
 
 
-
-
 function App() {
 
   const queryClient = new QueryClient()

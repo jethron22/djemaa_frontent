@@ -5,7 +5,7 @@ import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
 import newRequest from "../../utils/newRequest";
 import { AiOutlineLogin } from "react-icons/ai";
-import { BsPersonFillCheck } from "react-icons/bs";
+import { BsPersonFillCheck, BsFillPersonCheckFill, BsFillBootstrapFill } from "react-icons/bs";
 
 
 function Navbar() {
@@ -58,17 +58,26 @@ function Navbar() {
           </Link>
         </div>
         <div className="links gap-0">
-         <span className="font-semibold cursor-pointer">Djemaa Business</span>
-          <span className="font-semibold cursor-pointer">Parcourir</span>
-          <span className="font-semibold cursor-pointer">English</span>
-          {!currentUser?.isSeller && <span className="font-semibold cursor-pointer">Devenir vendeur</span>}
+          <div className="flex items-center gap-2">
+          <span className=""><BsFillBootstrapFill size={18} /></span>
+         <span className="cursor-pointer">Djemaa Boost</span>
+         </div>
+    
+          <span className="flex items-center gap-1">
+          <span className="mb-1"><BsFillPersonCheckFill size={20} /></span>
+          {!currentUser?.isSeller &&  <span className="flex cursor-pointer">Devenir prestataire</span>
+          }
+         
+         
+          </span>
+          
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
               <img
                 src={currentUser.img}
               // alt="user image"
               />
-              <span className="font-semibold"> Bonjour {currentUser?.username} </span>
+              <span className=""> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
               {open && <div className="options">
                 {currentUser.isSeller && (
@@ -98,17 +107,17 @@ function Navbar() {
           ) : (
             <>
               <Link to="/login" className="link">
-                <div className="flex items-center duration-150  hover:text-green-400 gap-1">
-                  <span className="font-semibold">Se connecter</span>
+                <div className="flex items-center duration-150  gap-2">
+                  <span className="">Se connecter</span>
                   <span><AiOutlineLogin size={20} /></span>
                 </div>
                 
               </Link> 
 
               <Link className="link" to="/register">
-                <div className="flex items-center px-3 hover:text-white duration-150 hover:bg-green-700 p-2 rounded gap-1">
-                  <span> <button className=" font-semibold rounded">Rejoindre</button></span>
-                  <span><BsPersonFillCheck size={20}  /></span>
+                <div className="flex items-center px-3 bg-slate-700 hover:text-white duration-150 hover:bg-green-700 p-2 rounded gap-1">
+                  <span> <button className="join font-semibold rounded">Rejoindre</button></span>
+                  <span className="joinIcon"><BsPersonFillCheck  size={20}  /></span>
                 </div>
                
               </Link>
