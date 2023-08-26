@@ -5,7 +5,7 @@ import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
 import newRequest from "../../utils/newRequest";
 import { AiOutlineLogin } from "react-icons/ai";
-import { BsPersonFillCheck, BsFillPersonCheckFill, BsFillBootstrapFill } from "react-icons/bs";
+import { BsPersonFillCheck, BsAward, BsSliders, BsFillArrowUpRightSquareFill, BsPlusLg, BsSortDown, BsBoxSeamFill, BsChatLeftDots, BsBoxArrowRight, BsBoxArrowInRight, BsPersonCircle } from "react-icons/bs";
 
 
 function Navbar() {
@@ -22,7 +22,7 @@ function Navbar() {
 
       await newRequest.post("/auth/logout")
       localStorage.setItem("currentUser", null);
-      
+
 
       navigate("/")
 
@@ -59,67 +59,78 @@ function Navbar() {
         </div>
         <div className="links gap-0">
           <div className="flex items-center gap-2">
-          <span className=""><BsFillBootstrapFill size={18} /></span>
-         <span className="cursor-pointer">Djemaa Boost</span>
-         </div>
-    
-          <span className="flex items-center gap-1">
-          <span className="mb-1"><BsFillPersonCheckFill size={20} /></span>
-          {!currentUser?.isSeller &&  <span className="flex cursor-pointer">Devenir prestataire</span>
-          }
-         
-         
-          </span>
-          
+            <span className="mb-[0.5px]"><BsSliders size={15} /></span>
+            <span className="cursor-pointer">Djemaa boost</span>
+          </div>
+
+            {!currentUser?.isSeller &&
+              <Link to="/register">
+              <div className="flex items-center gap-1">
+              
+                <span className="mb-1"><BsAward size={15} /></span>
+                <span className="flex cursor-pointer">Ouvrir un compte prestataire</span>
+             
+              </div>
+              </Link>
+
+            }
+
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img
-                src={currentUser.img}
-              // alt="user image"
-              />
+              
+                {currentUser.img || <BsPersonCircle color="gray" size={35} />}
+              
               <span className=""> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
-              {open && <div className="options">
+              {open && <div className="options ">
                 {currentUser.isSeller && (
                   <>
-                    <Link className="link" to="/djemas?search">
-                      Tous les Djemaas
+                    <Link className="link flex items-center gap-2 " to="/djemas?search">
+                      <span>Tous les Djemaas</span>
+                      <span><BsFillArrowUpRightSquareFill /></span>
                     </Link>
-                    <Link className="link" to="/add-djemaa">
-                      Ajouter un Djemaa
+                    <Link className="link flex items-center gap-2 " to="/add-djemaa">
+                      <span><BsPlusLg /></span>
+                      <span> Ajouter un Djemaa </span>
+
                     </Link>
-                    <Link className="link" to="/my-djema">
-                      Mes Djemas
+                    <Link className="link flex items-center gap-2 " to="/my-djema">
+                      <span><BsSortDown /></span>
+                      <span> Mes Djemas</span>
                     </Link>
                   </>
                 )}
-                <Link className="link" to="/commandes">
-                  Commandes
+                <Link className="link flex items-center gap-2 " to="/commandes">
+                  <span><BsBoxSeamFill /></span>
+                  <span>Commandes</span>
                 </Link>
-                <Link className="link" to="/messages">
-                  Messages
+                <Link className="link flex items-center gap-2 " to="/messages">
+                  <span><BsChatLeftDots /></span>
+                  <span> Messages</span>
                 </Link>
-                <Link className="link" onClick={handleLogout}>
-                  Déconnexion
+                <Link className="link flex items-center gap-2 " onClick={handleLogout}>
+                  <span><BsBoxArrowRight /></span>
+                  <span>Déconnexion</span>
+
                 </Link>
               </div>}
             </div>
           ) : (
             <>
               <Link to="/login" className="link">
-                <div className="flex items-center duration-150  gap-2">
+                <div className="flex items-center duration-150  gap-1">
                   <span className="">Se connecter</span>
-                  <span><AiOutlineLogin size={20} /></span>
+                  <span><BsBoxArrowInRight size={20} /></span>
                 </div>
-                
-              </Link> 
+
+              </Link>
 
               <Link className="link" to="/register">
                 <div className="flex items-center px-3 bg-slate-700 hover:text-white duration-150 hover:bg-green-700 p-2 rounded gap-1">
                   <span> <button className="join font-semibold rounded">Rejoindre</button></span>
-                  <span className="joinIcon"><BsPersonFillCheck  size={20}  /></span>
+                  <span className="joinIcon"><BsPersonFillCheck size={20} /></span>
                 </div>
-               
+
               </Link>
             </>
           )}

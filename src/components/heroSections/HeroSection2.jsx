@@ -11,7 +11,7 @@ function HeroSection2() {
                 <div className='flex flex-col '>
 
                     <p className='text-4xl font-extrabold mb-7'><span className='text-green-500 '>Djemaa</span> met votre service en avant !</p>
-                    <p className='text-2xl font-extrabold '>Faites decouvrir votre travail <span className='italic text-green-500'>aux milliers</span> des clients chez nous !</p>
+                    <p className='text-2xl font-extrabold '>Faites découvrir votre travail <span className='italic text-green-500'>aux milliers</span> des clients chez nous !</p>
                     <span className='mt-10 w-[430px] gap-3 items-center flex'><AiFillCheckCircle className=' text-green-600' size={28} /> <h4 className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4></span>
                     <span className='mt-10 w-[430px] gap-3 items-center flex'><AiFillCheckCircle className=' text-yellow-600' size={28} /> <h4 className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4></span>
                     <span className='mt-10 w-[430px] gap-3 items-center flex'><AiFillCheckCircle className=' text-green-600' size={28} /> <h4 className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. </h4></span>

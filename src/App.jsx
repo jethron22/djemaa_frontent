@@ -63,10 +63,6 @@ function App() {
           path: "/my-djema",
           element: <MyDjemas />
         },
-        {
-          path: "/add-djemaa",
-          element: <Addjema />
-        },
    
         {
           path: "/message/:id",
@@ -93,11 +89,15 @@ function App() {
       
 
       ]
+      
 
 
     },
 
-   
+    {
+      path: "/add-djemaa",
+      element: <Addjema />
+    },
 
     {
       path: "/welcome",

@@ -53,11 +53,11 @@ export default function Messages() {
 
           <div className="container">
             <div className="title">
-              <h1>Messages</h1>
+              <span className='text-3xl'>Messages</span>
             </div>
             <table>
               <tr>
-                <th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>
+                <th>{currentUser.isSeller ? "Client" : "Prestataire"}</th>
                 <th>Message récent</th>
                 <th>Date</th>
                 <th>Action</th>

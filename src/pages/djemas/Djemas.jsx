@@ -5,6 +5,8 @@ import { AiFillCaretDown } from "react-icons/ai"
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest.js";
 import { useLocation } from "react-router-dom";
+// import { AiFillExclamationCircle } from "react-icons/ai";
+import { AiFillAlert } from "react-icons/ai";
 
 function Djemas() {
   const [sort, setSort] = useState("sales");
@@ -13,6 +15,8 @@ function Djemas() {
   const maxRef = useRef();
 
   const { search } = useLocation()
+
+
 
   const { error, data, isLoading, refetch } = useQuery({
     queryKey: ["djemas"],
@@ -75,8 +79,8 @@ function Djemas() {
               </div>
               <div className="left">
                 <span>Budget</span>
-                <input ref={minRef} type="number" placeholder="minimum" />
-                <input ref={maxRef} type="number" placeholder="maximum" />
+                <input ref={minRef} type="number" placeholder="Min." />
+                <input ref={maxRef} type="number" placeholder="Max." />
                 <button onClick={apply}>Trouver</button>
               </div>
             </div>
@@ -95,7 +99,7 @@ function Djemas() {
                     
                   </div>
                   <span className="mr-3 ml-3 font-semibold text-green-600"> Chargement.. </span>
-                </div> : error ? <div className="justify-center items-center m-auto mt-20"><div className="font-semibold text-red-600">Erreur lors de chargement des djemas !</div></div> : data.map((djema) => (
+                </div> : error ? <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-green-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : data.map((djema) => (
                   <DjemaCard key={djema._id} item={djema} />
                 ))}
             </div>

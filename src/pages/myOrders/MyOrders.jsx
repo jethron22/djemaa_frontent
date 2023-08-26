@@ -54,7 +54,7 @@ function MyOrders() {
 
             <div className="container">
               <div className="title">
-                <h1>Orders</h1>
+                <span className='text-3xl'>Commandes</span>
               </div>
               <table>
                 <tr>

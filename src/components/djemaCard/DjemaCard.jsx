@@ -37,7 +37,7 @@ const DjemaCard = ({ item }) => {
                 </div>
               </div>
             </div>
-          </div></span>) : error ? ("erreur de chargement")
+          </div></span>) : error ? (<span className="text-red-700">connectez-vous s'il vous plait !</span>)
             :
 
             (<div className="user flex items-center justify-between">

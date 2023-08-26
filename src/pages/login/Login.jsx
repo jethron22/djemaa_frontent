@@ -26,13 +26,10 @@ function Login() {
 
     } catch (error) {
       setError(error.response.data);
-
     }
-
   }
 
   return (
-
 
     <div>
       <div class="rounded w-[1200px] py-12 px-12 m-auto flex items-center justify-between">
@@ -52,8 +49,7 @@ function Login() {
 
                 <input onChange={(e) => setUsername(e.target.value)}
 
-                  class="border-solid w-[300px] border border-gray-400 rounded px-2 py-3" type="text" neme="usern" placeholder="ex: john" required />
-
+                  class="border-solid border-green-600 w-[300px] border rounded px-2 py-3" type="text" neme="usern" placeholder="ex: john" required />
               </div>
 
               <div>
@@ -61,7 +57,7 @@ function Login() {
 
                 <input onChange={(e) => setPassword(e.target.value)}
 
-                  class="border-solid w-[300px] border border-gray-400 rounded px-2 py-3" type="password" name="pass" placeholder="votre mot de passe" required />
+                  class="border-solid border-green-600 w-[300px] border outline-none rounded px-2 py-3" type="password" name="pass" placeholder="votre mot de passe" required />
               </div>
               <div className='mt-7'>
                 <button class="bg-green-700 rounded text-white font-bold w-[300px] py-3" type="submit">Se connecter</button>
@@ -76,7 +72,6 @@ function Login() {
       </div>
     </div>
 
-    
   )
 }
 

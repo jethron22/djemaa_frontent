@@ -60,7 +60,7 @@ function Register() {
     <div className=''>
       <form onSubmit={handleSubmit}>
         <div className='flex justify-around w-[70%] m-auto mt-5 p-3'>
-          <div className='flex flex-col w-72 '>
+          {<div className='flex flex-col w-72 '>
             <p className='text-3xl text-gray-600 font-bold'>Créer un nouveau compte</p>
             <br />
             <p >
@@ -71,7 +71,7 @@ function Register() {
             <p>
               <label htmlFor=''>Email</label>
               <br />
-              <input onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='rounded   w-full border-none bg-slate-200'  type='email' name='email'></input>
+              <input onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='rounded   w-full border-none bg-slate-200' type='email' name='email'></input>
             </p>
             <p>
               <label htmlFor=''>Mot de passe</label>
@@ -82,7 +82,7 @@ function Register() {
             <label htmlFor=''>Photo de profil</label>
             <br />
             <input onChange={(e)=> setFile(e.target.files[0])} className='w-full border-[1.5px] border-gray-300 flex flex-col p-2' type='file' name='picture'></input>
-          </p> */}
+           </p> */}
             <p>
               <label htmlFor=''>Pays</label>
               <br />
@@ -96,7 +96,7 @@ function Register() {
               </p>
 
             </p>
-          </div>
+          </div>}
 
 
 
@@ -107,11 +107,11 @@ function Register() {
               <span className=''>
                 <label className='font-semibold text-green-500 ' htmlFor=''>Activer un compte prestataire</label>
               </span>
-              <span>
 
-                <input onChange={handleSeller} type='checkbox' name='account'></input>
-              </span>
-
+              <input onChange={handleSeller} type="checkbox" class="peer sr-only opacity-0" id="toggle" />
+              <label for="toggle" class="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-gray-400 px-0.5 outline-gray-400 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow before:transition-transform before:duration-300 peer-checked:bg-green-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-checked:peer-focus-visible:outline-green-500">
+                <span class="sr-only">Enable</span>
+              </label>
             </p>
 
             <p className='mb-3'>
