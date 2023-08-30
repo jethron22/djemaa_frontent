@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Featured.scss";
 import { useNavigate } from "react-router-dom"
+import djemaa_women_freelancer from "./djemaa_women_freelancer.png"
 
 
 function Featured() {
@@ -50,8 +51,8 @@ function Featured() {
             </p>
           </div>
         </div>
-        <div className="right flex lg:flex md:flex xl:flex ">
-          <img src="./img/business_man.png" alt="" />
+        <div className="right flex h-full lg:flex md:flex xl:flex ">
+          <img src={djemaa_women_freelancer} alt="" />
         </div>
       </div>
     </div>

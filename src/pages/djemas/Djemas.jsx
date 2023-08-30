@@ -42,7 +42,6 @@ function Djemas() {
 
   useEffect(() => {
     refetch()
-
   }, [sort])
 
 
@@ -52,7 +51,7 @@ function Djemas() {
   return (
     <div className="djemas">
           <div className="container">
-            <span className="breadcrumbs"> Djemaa  Graphics & Design </span>
+            <span className="breadcrumbs"> Djemaa Graphics & Design </span>
             <p className="text-3xl">Photographie</p>
             <p>
               Explorer le monde de la photographie avec ces prestataires
@@ -99,7 +98,7 @@ function Djemas() {
                     
                   </div>
                   <span className="mr-3 ml-3 font-semibold text-green-600"> Chargement.. </span>
-                </div> : error ? <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-green-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : data.map((djema) => (
+                </div> : error ? <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : data.map((djema) => (
                   <DjemaCard key={djema._id} item={djema} />
                 ))}
             </div>

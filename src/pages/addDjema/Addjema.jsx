@@ -1,16 +1,72 @@
 import React from "react"
+import { useReducer } from "react";
 import "./add.scss";
-import { BsCurrencyDollar, BsSortDown, BsBoxSeamFill } from "react-icons/bs";
+import { BsCurrencyDollar, BsSortDown, BsBoxSeamFill, BsPersonCircle } from "react-icons/bs";
 import djemaa_logo from "./djemaa_logo.png"
 import { useNavigate } from "react-router-dom"
+import { INITIAL_STATE, djemaReducer } from "../../reducers/djemaReducer";
+import getCurrentUser from "../../utils/getCurrentUser";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import newRequest from '../../utils/newRequest';
+import { SuccessModal } from "./Modal";
+
 
 export default function Addjema() {
+
+  const [state, dispatch] = useReducer(djemaReducer, INITIAL_STATE)
 
   const navigate = useNavigate()
 
   const handlerNavigate = () => {
     navigate("/")
   }
+
+  const handleChange = (e) => {
+    dispatch({
+      type: "CHANGE_INPUT", payload: { name: e.target.name, value: e.target.value },
+    })
+  }
+
+  console.log(state)
+
+  const currentUser = getCurrentUser()
+
+  const handleFeature = (e) => {
+
+    e.preventDefault()
+
+    dispatch({
+      type: "ADD_FEATURE",
+      payload: e.target[0].value,
+    });
+    payload: e.target[0].value = ""
+  }
+
+
+  const queryClient = useQueryClient()
+  
+  const mutation = useMutation({
+    mutationFn: (djema) => {
+      return newRequest.post('/djemas', djema)
+    },
+
+    onSuccess: () => {
+
+      queryClient.invalidateQueries(["djemas"])
+
+    }
+
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    mutation.mutate(state)
+    confirm("Félicitation, Vous venez de publier votre service avec succès !")
+    navigate("/my-djema")
+    
+  }
+
+
 
   return (
     <div className=" flex w-full">
@@ -77,15 +133,19 @@ export default function Addjema() {
           <div class="flex justify-between items-center p-4 bg-white mt-3 rounded-xl shadow-lg">
             <h1 class="text-xl font-bold text-gray-700">Tableau de bord</h1>
             <div class="flex justify-end w-2/5">
-              <div class="flex items-center space-x-6 pr-8">
+              <div class="flex items-center space-x-3 pr-8">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 cursor-pointer text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
-                <img src="https://i.imgur.com/iH7hkQb.png" alt="" class="cursor-pointer" />
+                {currentUser.img || <BsPersonCircle color="gray" size={35} />}
+                <span className="font-semibold">{currentUser.username}</span>
               </div>
             </div>
           </div>
+          <div className="flex gap-3 mt-10 w-2/3 mb-12">
 
+            <span className="text-3xl font-semibold text-gray-600"><span className="text-green-600 text-4xl">{currentUser.username},</span> nous vous offrons un espace de gestion Impécable !</span>
+          </div>
           <div class="flex justify-between mt-4 space-x-4 s">
             <div class="bg-white w-1/3 p-4 rounded-xl shadow-lg flex items-center justify-around">
               <span className="bg-green-600 p-4 rounded-3xl">
@@ -128,40 +188,64 @@ export default function Addjema() {
                 <div className="info">
                   <label htmlFor="">Titre</label>
                   <input
+                    onChange={handleChange}
+                    name="title"
                     type="text"
                     placeholder="e.g. I will do something I'm really good at"
                   />
                   <label htmlFor="">Categorie</label>
-                  <select name="cats" id="cats">
-                    <option value="design">Design</option>
-                    <option value="web">Web Development</option>
-                    <option value="animation">Animation</option>
-                    <option value="music">Music</option>
+                  <select
+                    onChange={handleChange}
+                    name="cat" id="cat">
+                    <option value="Design" defaultValue>Design</option>
+                    <option value="Web">Web Development</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Music">Music</option>
+                    <option value="Saisie des données">Saisie des données</option>
+                    <option value="Wordpress">Wordpress</option>
+                    <option value="Photographie">Photograhie</option>
                   </select>
                   <label htmlFor="">Image de couverture</label>
                   <input type="file" />
                   <label htmlFor="">Téléverser une image</label>
+
                   <input type="file" multiple />
                   <label htmlFor="">Description</label>
-                  <textarea name="" id="" placeholder="Brief descriptions to introduce your service to customers" cols="0" rows="10"></textarea>
-                  <button className="bg-red-700">Créer</button>
+                  <textarea onChange={handleChange} name="desc" id="" placeholder="Brief descriptions to introduce your service to customers" maxlength="60" pattern="^.{0, 60}$" required cols="0" rows="10"></textarea>
+
+
+                  <button onClick={handleSubmit} className="bg-red-700">Créer</button>
+
+
+
                 </div>
                 <div className="details">
                   <label htmlFor="">Titre du service</label>
-                  <input type="text" placeholder="e.g. One-page web design" />
+                  <input onChange={handleChange} name="shortTitle" type="text" placeholder="e.g. One-page web design" />
                   <label htmlFor="">Courte Description</label>
-                  <textarea name="" id="" placeholder="Short description of your service" cols="30" rows="10"></textarea>
+                  <textarea
+                    onChange={handleChange}
+                    name="shortDesc" id="" placeholder="Short description of your service" cols="30" rows="10"></textarea>
                   <label htmlFor="">Temps de livraison (e.g. 3 jours)</label>
-                  <input type="number" />
+                  <input onChange={handleChange} name="deliveryTime" type="number" />
                   <label htmlFor="">Nombre des Révisions</label>
-                  <input type="number" />
+                  <input name="revisionNumber" onChange={handleChange} type="number" />
                   <label htmlFor="">Fonctionnalités</label>
-                  <input type="text" placeholder="e.g. page design" />
-                  <input type="text" placeholder="e.g. file uploading" />
-                  <input type="text" placeholder="e.g. setting up a domain" />
-                  <input type="text" placeholder="e.g. hosting" />
+                  <form className="add" action="" onSubmit={handleFeature}>
+                    <input type="text" placeholder="e.g. page design" />
+                    <button type="submit">Ajouter</button>
+                  </form>
+                  <div className="addedFeatures">
+                    {state?.features?.map(f => (
+                      <div className="item" key={f}>
+                        <button onClick={() => dispatch({ type: "REMOVE_FEATURE", payload: f })} className="btnfeatures">{f}
+                          <span> X</span>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                   <label htmlFor="">Prix</label>
-                  <input type="number" />
+                  <input onChange={handleChange} name="price" type="number" />
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ const DjemaCard = ({ item }) => {
   console.log(data)
 
   return (
-    <Link to={`/djema/${item._id}`} className="link">
+    <Link to={`/djema/${item._id}`} target="blank" className="link">
       <div className="djemaCard  hover:bg-slate-200 duration-200">
         <img src={item.cover} alt="" />
 

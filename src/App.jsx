@@ -85,19 +85,18 @@ function App() {
           element: <Messages />,
           
         },
-
-      
+        {
+          path: "/add-djemaa",
+          element: <Addjema />
+          
+        },
 
       ]
-      
-
+       
 
     },
 
-    {
-      path: "/add-djemaa",
-      element: <Addjema />
-    },
+ 
 
     {
       path: "/welcome",

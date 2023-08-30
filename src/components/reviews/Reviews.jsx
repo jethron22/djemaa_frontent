@@ -59,7 +59,7 @@ function Reviews({ djemaId }) {
 
     return (
         <div className="reviews">
-            <h2>Critiques</h2>
+            <h2>Commentaires</h2>
             {isLoading
                 ? "Chargement en cours"
                 : error
@@ -78,7 +78,7 @@ function Reviews({ djemaId }) {
                     {isLoading ? "Loading" : error ? "Vous avez déjà déposé une critique pour ce prestataire !" : <form onSubmit={handleSubmit}>
 
                         <div>
-                            <label for="Critiques" class="sr-only">Critiques</label>
+                            <label for="Commentaires" class="sr-only">Commentaires</label>
 
                             <div
                                 class="overflow-hidden rounded-lg border border-gray-200 shadow-sm focus-within:border-green-800 focus-within:ring-1 focus-within:ring-green-700"

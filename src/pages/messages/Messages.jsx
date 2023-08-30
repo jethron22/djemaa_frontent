@@ -64,7 +64,7 @@ export default function Messages() {
               </tr>
 
               {data.map((c) => (
-                <tr className="active" key={c.id}>
+                <tr className="active" key={c._id}>
                   <td></td>
                   <td>
                     <Link to="/message/123" className="link">

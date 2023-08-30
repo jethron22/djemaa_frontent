@@ -127,12 +127,7 @@ function Djema() {
                 <div className="slider">
                 </div>
                 <div >
-                  {data?.images.map((img) => (
-                    <img
-                      key={img}
-                      src={img}
-                    />
-                  ))}
+                 <img src="https://img.freepik.com/photos-premium/main-masculine-touchant-dans-concept-service_220873-7826.jpg?w=740" />
                 </div>
                 <div>
 
