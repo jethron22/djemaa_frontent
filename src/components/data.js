@@ -5,8 +5,7 @@ export const cards = [
     id: 1,
     title: "Design Graphique",
     desc: "Retouchez votre image",
-    img: "https://img.freepik.com/free-photo/woman-with-purple-hat-purple-dress-is-standing-front-mountain_1340-28650.jpg?t=st=1690183966~exp=1690187566~hmac=9bd72218505b85fe1e793976f7bf8f4f06ce34389b69cdd55eb603c14d318b7f&w=740",
-
+    img: "https://scontent.fgom1-1.fna.fbcdn.net/v/t39.30808-6/371923071_1814080875655563_8202494068107398379_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeHwhol6JYPo9DH9MwXV4fCUlDSrvIBlynGUNKu8gGXKccqeMGpHg2UyyH7RO1A8DgZTEzQDqskW_aUgqJop5O0n&_nc_ohc=lEoxoHWNIIUAX-q3wIp&_nc_zt=23&_nc_ht=scontent.fgom1-1.fna&oh=00_AfAqQqTA5c1ZRkeney8nvtI2MoQEb5SgwPIhVUW3LuhHaA&oe=64F64731"
   },
 
   {

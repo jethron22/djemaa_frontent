@@ -18,7 +18,7 @@ function Featured() {
     <div className="featured">
       <div className="container ">
         <div className="left">
-          <h1 className="tracking-tight font-extrabold">
+          <h1 className="font font-extrabold">
             Rencontrez un <span className="text-green-400">talent </span> pour lancer votre business
           </h1>
           <div className="search">
@@ -52,7 +52,7 @@ function Featured() {
           </div>
         </div>
         <div className="right flex h-full lg:flex md:flex xl:flex ">
-          <img src={djemaa_women_freelancer} alt="" />
+          <img className="animation-ping" src={djemaa_women_freelancer} alt="" />
         </div>
       </div>
     </div>

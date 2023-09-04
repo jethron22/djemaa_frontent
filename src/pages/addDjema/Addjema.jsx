@@ -8,7 +8,6 @@ import { INITIAL_STATE, djemaReducer } from "../../reducers/djemaReducer";
 import getCurrentUser from "../../utils/getCurrentUser";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
-import { SuccessModal } from "./Modal";
 
 
 export default function Addjema() {
@@ -65,8 +64,6 @@ export default function Addjema() {
     navigate("/my-djema")
     
   }
-
-
 
   return (
     <div className=" flex w-full">
@@ -144,7 +141,7 @@ export default function Addjema() {
           </div>
           <div className="flex gap-3 mt-10 w-2/3 mb-12">
 
-            <span className="text-3xl font-semibold text-gray-600"><span className="text-green-600 text-4xl">{currentUser.username},</span> nous vous offrons un espace de gestion Impécable !</span>
+            <span className="text-3xl font-semibold text-gray-600"><span className="text-green-600 text-4xl">{currentUser.username},</span> nous vous offrons un espace de gestion Impécable pour vos projets !</span>
           </div>
           <div class="flex justify-between mt-4 space-x-4 s">
             <div class="bg-white w-1/3 p-4 rounded-xl shadow-lg flex items-center justify-around">

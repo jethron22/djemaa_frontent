@@ -59,8 +59,8 @@ function Register() {
   return (
     <div className=''>
       <form onSubmit={handleSubmit}>
-        <div className='flex justify-around w-[70%] m-auto mt-5 p-3'>
-          {<div className='flex flex-col w-72 '>
+        <div className='md:flex md:justify-around lg:70% md:w-[70%] md:m-auto md:mt-5 mt-5  p-5 sm:justify-around'>
+          {<div className='flex flex-col sm:w-72 md:w-72 '>
             <p className='text-3xl text-gray-600 font-bold'>Créer un nouveau compte</p>
             <br />
             <p >
@@ -88,7 +88,7 @@ function Register() {
               <br />
               <input onChange={handleChange} placeholder='votre pays ici..' className='rounded w-full border-none bg-slate-200' type='text' name='country'></input>
             </p>
-            <p>
+            <p className='hidden md:flex md:mt-6'>
 
               <br />
               <p className='flex justify-center text-white font-semibold rounded cursor-pointer bg-green-700  w-full p-3'>
@@ -100,7 +100,7 @@ function Register() {
 
 
 
-          <div className='flex flex-col w-72'>
+          <div className='md:flex mt-14 md:mt-0 flex-col xl:w-72 md:w-72 sm:w-72'>
             <p className='text-3xl font-bold text-gray-600 '>Je souhaite devenir prestataire</p>
             <br />
             <p className='flex justify-between mb-3'>
@@ -123,6 +123,14 @@ function Register() {
               <label htmlFor=''>Description de vous</label>
               <br />
               <textarea onChange={handleChange} className='w-full rounded h-[150px] border-none bg-slate-200 ' placeholder='...Decrivez-vous ici en tant que prestataire de service. Ceci apparaitra sur votre profil.' type='text' name='desc'></textarea>
+            </p>
+
+            <p className='md:hidden sm:flex'>
+              <br />
+              <p className='flex justify-center text-white font-semibold rounded cursor-pointer bg-green-700  w-full p-3'>
+                <button className='' type='submit'> S'inscrire </button>
+              </p>
+
             </p>
           </div>
 

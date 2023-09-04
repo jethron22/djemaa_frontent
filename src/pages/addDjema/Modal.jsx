@@ -1,11 +1,11 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import getCurrentUser from '../../utils/getCurrentUser'
+import getCurrentUser from '../../utils/getCurrentUser.js'
 import { Link } from 'react-router-dom'
 import { AiFillCheckCircle } from "react-icons/ai"
 
 
-export const SuccessModal = () => {
+const SuccessModal = () => {
   const [open, setOpen] = useState(true)
 
   const currentUser = getCurrentUser()
@@ -96,3 +96,5 @@ export const SuccessModal = () => {
     </Transition.Root>
   )
 }
+
+export default SuccessModal

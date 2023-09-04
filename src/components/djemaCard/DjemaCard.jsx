@@ -5,6 +5,8 @@ import { AiOutlineSketch } from "react-icons/ai"
 import { AiFillStar } from "react-icons/ai"
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
+import {BsPersonCircle} from "react-icons/bs"
+import getCurrentUser from "../../utils/getCurrentUser";
 
 const DjemaCard = ({ item }) => {
 
@@ -17,7 +19,7 @@ const DjemaCard = ({ item }) => {
       }),
   });
 
-  console.log(data)
+const currentUser = getCurrentUser()
 
   return (
     <Link to={`/djema/${item._id}`} target="blank" className="link">
@@ -42,7 +44,7 @@ const DjemaCard = ({ item }) => {
 
             (<div className="user flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img src={item.pp} alt="" />
+              {currentUser.pp || <BsPersonCircle color="gray" size={35} />}
                 <span className="font-semibold text-black">{data.username}</span>
               </div>
               <div className="flex ">

@@ -5,7 +5,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 function HeroSection2() {
     return (
-        <div className='bg-[#1c2d64] text-gray-200' >
+        <div className='bg-[#020d30] text-gray-200' >
             <div className="flex  m-[75px] gap-5 ">
                    <div className='mt-20 mb-20 flex'>
                 <div className='flex flex-col '>

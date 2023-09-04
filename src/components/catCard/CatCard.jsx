@@ -8,7 +8,7 @@ function CatCard({ item }) {
 
     <div>
       <div className="catCard">
-        <Link to="/djemas?cat">
+        <Link to="/djemas?cat" target="blank">
           <img src={item.img} alt="" />
           <span className="desc">{item.desc}</span>
           <span className="title">{item.title}</span>

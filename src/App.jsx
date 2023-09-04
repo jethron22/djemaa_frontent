@@ -91,17 +91,17 @@ function App() {
           
         },
 
+        {
+          path: "/welcome",
+          element: <WelcomePage />
+        },
+
       ]
        
 
     },
 
- 
-
-    {
-      path: "/welcome",
-      element: <WelcomePage />
-    },
+  
  
 
   ])

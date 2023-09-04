@@ -10,7 +10,6 @@ import newRequest from '../../utils/newRequest';
 function Reviews({ djemaId }) {
 
     const [Error, setError] = useState(null)
-
     const queryClient = useQueryClient()
 
 
@@ -26,6 +25,19 @@ function Reviews({ djemaId }) {
 
     });
 
+    const userId = data?.userId;
+
+    const {data: dataUser} = useQuery({
+  
+      queryKey: ["user"],
+      queryFn: () =>
+        newRequest.get(`/users/${userId}`).then((res) => {
+          return res.data;
+        }),
+      enabled: !!userId,
+    });
+
+
 
     const mutation = useMutation({
         mutationFn: (review) => {
@@ -40,9 +52,6 @@ function Reviews({ djemaId }) {
 
     })
 
-
-
-
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -51,31 +60,24 @@ function Reviews({ djemaId }) {
         const star = e.target[1].value;
         mutation.mutate({ djemaId, desc, star })
 
-
-
     }
-
-
 
     return (
         <div className="reviews">
-            <h2>Commentaires</h2>
+            <h2>Commentaires sur ce service</h2>
             {isLoading
                 ? "Chargement en cours"
                 : error
                     ? "Quelque chose n'a pas marché"
                     : data.map((review) => <SingleReview key={review._id} review={review} />
 
-
-
                     )}
             <div className='add-reviews'>
-
-                <p>Ajouter une Critique</p>
+                <p>Ajouter un commentaire sur ce service de {dataUser?.username}</p>
                 <div className='mt-5'>
 
 
-                    {isLoading ? "Loading" : error ? "Vous avez déjà déposé une critique pour ce prestataire !" : <form onSubmit={handleSubmit}>
+                    {isLoading ? "Loading" : error ? "Vous avez déjà déposé un commentaire pour ce service ! " : <form onSubmit={handleSubmit}>
 
                         <div>
                             <label for="Commentaires" class="sr-only">Commentaires</label>
@@ -115,7 +117,11 @@ function Reviews({ djemaId }) {
                             </div>
                         </div>
                     </form>}
-                 {Error && error}
+                    <div className='flex w-32'>
+                        <p>
+                        {Error && error}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

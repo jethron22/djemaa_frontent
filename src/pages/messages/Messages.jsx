@@ -24,6 +24,13 @@ export default function Messages() {
 
   console.log(data)
 
+  const dayDiff =(date)=> {
+    const now = new Date();
+    const diff = now - date;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    return days;
+  }
+
 
   return (
     
@@ -71,7 +78,7 @@ export default function Messages() {
                       {c?.lastMessage?.substring(0, 100)}...
                     </Link>
                   </td>
-                  <td>{moment(c.updatedAt).fromNow()}</td>
+                  <td>il y a {dayDiff(new Date(c.updatedAt))} jours</td>
 
                   <td>
                     {(currentUser.isSeller && !c.readBySeller) || (!currentUser.isSeller && !c.readByBuyer) && 
