@@ -61,7 +61,7 @@ function Featured() {
 
             <button onClick={handleChange} target="blank" value="Marketing digital" name="Faites connaitre ce que vous faites maintenant !" id="Marketing > Marketing Digital">Marketing digital</button>
 
-            <button onClick={handleChange} target="blank" value="Traduction" name="Trouver des meilleurs opportunités par la traduction des langues" id="Langue > Traduction">Traduction</button>
+            <button onClick={handleChange} target="blank" value="Montage video" name="Présenter votre marque au public, concretement !" id="Art > Montage video">Montage video</button>
 
           </div>
 

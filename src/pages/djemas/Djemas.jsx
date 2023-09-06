@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import getCurrentUser from "../../utils/getCurrentUser";
 import logi_djemaa from "../djema/logi_djemaa.gif"
 import DjemaCardSkeleton from "../../skeleton/DjemaCardSkeleton";
+import LoginUserDataDjemaCard from "../../skeleton/LoginUserDataDjemaCard";
 
 function Djemas() {
   const [sort, setSort] = useState("sales");
@@ -58,15 +59,23 @@ function Djemas() {
 
 
   return (
-    <div className="djemas">
+    <div className="djemas flex flex-col flex-wrap">
+
+            {curentUser && <div>
+              <span>{}</span>
+            </div>}
 
       {!curentUser && isLoading ?
 
-        (
+        
+          
 
-       <DjemaCardSkeleton />
-    
-          )
+            <div>
+              <DjemaCardSkeleton />
+            </div>
+
+          
+        
 
 
         : error ? <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
@@ -113,19 +122,10 @@ function Djemas() {
           <div className="cards flex justify-center w-[1200px]">
 
             {isLoading ?
-              <div className="flex justify-center items-center m-auto mt-12 ">
 
-                <div
-                  class=" flex text-green-600 h-8 w-8 animate-spin  rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                  role="status">
+              <LoginUserDataDjemaCard />
 
-                  <span
-                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-                  ></span>
-
-                </div>
-                <span className="mr-3 ml-3 font-semibold text-green-600"> Chargement.. </span>
-              </div> : error ?
+              : error ?
 
                 <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : data.map((djema) => (
                   <DjemaCard key={djema._id} item={djema} />
@@ -134,7 +134,8 @@ function Djemas() {
           <div>
 
           </div>
-        </div>}
+        </div>
+      }
     </div>
 
   )
