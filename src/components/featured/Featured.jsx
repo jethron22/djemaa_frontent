@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./Featured.scss";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import djemaa_women_freelancer from "./djemaa_women_freelancer.png"
+
 
 
 function Featured() {
 
+  const handleChange = (e) => {
+
+    const cat = e.target.value;
+    const name = e.target.name;
+    const id = e.target.id;
+    navigate(`/djemas/${cat}/${name}/${id}?cat=${cat}`)
+  }
+
   const [input, setInput] = useState("")
-
   const navigate = useNavigate()
-
   const handleSubmit = () => {
-    navigate(`/djemas?search=${input}`)
+
+  navigate(`/djemas?search=${input}`)
+
   }
 
   return (
@@ -27,22 +36,22 @@ function Featured() {
               <input
                 onChange={(e) => setInput(e.target.value)}
                 required
-                className="" type="text" placeholder='Tapez par ex. "Création logo "' />
+                className="" type="text" placeholder='Tapez par ex. "Création logo "   ' />
             </div>
             <button onClick={handleSubmit}>Rechercher</button>
           </div>
 
           <div className="categories">
-            <button>Toutes les Categories</button>
-            <button value={"Design web"}>Design web</button>
-            <button>WordPress</button>
-            <button>Conception logo</button>
-            <button>Photographie</button>
-            <button>Saisie des données</button>
-            <button>Redaction</button>
-            <button>graphisme & design</button>
-            <button>Marketing digital</button>
-            <button>Traduction</button>
+            <button onClick={handleChange} target="blank" value="Design web" name="Découvrez le monde des UI et UX designers " id="Web & Webdesign">Design web</button>
+            <button onClick={handleChange} target="blank" value="Wordpress" name="Mettez votre marque en ligne avec Wordpress" id="developpement web > wordpress">WordPress</button>
+            <button onClick={handleChange} target="blank" value="Conception logo" name="Démarquez-vous avec un Logo Flippant" id="Art > Graphisme > Logo">Conception logo</button>
+            <button onClick={handleChange} target="blank" value="Photographie" name="Immortaliser vos souvenir par des images" id="Art > Photographie">Photographie</button>
+            <button onClick={handleChange} target="blank" value="Saisie des données" name="Saisissez vos données en un seul clic" id="Saisie > Saisie des données">Saisie des données</button>
+            <button onClick={handleChange} target="blank" value="Programmation" name="Developper votre application from scratch.." id="Developpemment web > Programmation">Programmation</button>
+            <button onClick={handleChange} target="blank" value="Rédaction" name="Rédiger vos documents en moins de temps" id="Redaction > Redaction">Redaction</button>
+            <button onClick={handleChange} target="blank" value="Graphisme & design" name="Trouvez une meilleure image graphique de votre marque" id="Art > Graphisme > Design">Graphisme & design</button>
+            <button onClick={handleChange} target="blank" value="Marketing digital" name="Faites connaitre ce que vous faites maintenant !" id="Marketing > Marketing Digital">Marketing digital</button>
+            <button onClick={handleChange} target="blank" value="Traduction" name="Trouver des meilleurs opportunités par la traduction des langues" id="Langue > Traduction">Traduction</button>
           </div>
 
           <div>

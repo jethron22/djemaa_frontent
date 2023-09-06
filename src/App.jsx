@@ -48,6 +48,10 @@ function App() {
           element: <Home />
         },
         {
+          path: "/djemas/:cat/:name/:id",
+          element: <Djemas />
+        },
+        {
           path: "/djemas",
           element: <Djemas />
         },

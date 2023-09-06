@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./CatCard.scss";
 
 function CatCard({ item }) {
-  
-  return (
 
+  return (
     <div>
+
       <div className="catCard">
         <Link to="/djemas?cat" target="blank">
           <img src={item.img} alt="" />
@@ -16,7 +16,6 @@ function CatCard({ item }) {
       </div>
 
     </div>
-
   );
 }
 export default CatCard;

@@ -10,7 +10,7 @@ import newRequest from "../../utils/newRequest";
 import Reviews from "../../components/reviews/Reviews";
 import getCurrentUser from "../../utils/getCurrentUser";
 import { BsPersonCircle } from "react-icons/bs";
-import FreelancesItem from "../../components/Freelancers/Sellers";
+import logi_djemaa from "./logi_djemaa.gif"
 
 
 function Djema() {
@@ -29,9 +29,10 @@ function Djema() {
 
   });
 
-  
-
-  const currentUser = getCurrentUser()
+   
+  const handlerLoginNavigate =()=> {
+     navigate("/login")
+  }
 
 
   const userId = data?.userId;
@@ -58,15 +59,21 @@ function Djema() {
   console.log(data)
 
   const dayDiff = (date) => {
+    
     const now = new Date();
     const diff = now - date;
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     return days;
+
+   
+
   }
+
+  const currentUser = getCurrentUser()
 
   return (
     <div className="djema">
-      {isLoading
+      {!currentUser && isLoading
 
         ?
 
@@ -87,20 +94,23 @@ function Djema() {
 
           ?
 
-          <div className="mt-20 text-red-500 font-semibold">
-            <p>
-
-              Erreur lors de chargement de ce djema
-
+          <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
+            <p className="flex justify-center">
+              <img className="w-32 h-30" src={logi_djemaa} />
+            </p>
+            <p className="text-green-700 font-light flex justify-center mt-5">
+              <span onClick={handlerLoginNavigate} className="flex underline cursor-pointer">Essayez de vous connecter pour voir cette page </span> 
             </p>
           </div>
           :
 
           <div className="container">
             <div className="left">
-              <span className="breadcrumbs"> {data?.cat} </span>
+              <div className="bg-green-700 flex w-40 justify-center rounded ">
+              <span className="breadcrumbs "> {data?.cat} </span>
+              </div>
               <h1 className="text-3xl">{data?.title}</h1>
-              <p>service publié il y a {dayDiff(new Date(data?.updatedAt))} jours</p>
+              <p>Service publié il y a {dayDiff(new Date(data?.updatedAt))} jours</p>
               {isLoadingUser ?
 
                 "chargement encours"

@@ -86,7 +86,7 @@ function MyDjemas() {
 
             <span className="">
               <Link to="/djemas?cat">
-              <button className="rounded">Tous les Djemas</button>
+              <button className="rounded" value="Tous les Services">Tous les Djemas</button>
             </Link>
             </span>
 

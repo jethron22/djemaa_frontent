@@ -45,13 +45,6 @@ console.log(data)
     <p>
   {review.desc}
     </p>
-    <div className="helpful">
-      <span>Helpful?</span>
-      <AiOutlineLike />
-      <span>Yes</span>
-      <AiFillStar />
-      <span>No</span>
-    </div>
   </div>
   <hr />
   </div>

@@ -13,9 +13,7 @@ import newRequest from '../../utils/newRequest';
 export default function Addjema() {
 
   const [state, dispatch] = useReducer(djemaReducer, INITIAL_STATE)
-
   const navigate = useNavigate()
-
   const handlerNavigate = () => {
     navigate("/")
   }
@@ -27,7 +25,6 @@ export default function Addjema() {
   }
 
   console.log(state)
-
   const currentUser = getCurrentUser()
 
   const handleFeature = (e) => {
@@ -194,13 +191,20 @@ export default function Addjema() {
                   <select
                     onChange={handleChange}
                     name="cat" id="cat">
-                    <option value="Design" defaultValue>Design</option>
-                    <option value="Web">Web Development</option>
-                    <option value="Animation">Animation</option>
-                    <option value="Music">Music</option>
+                    <option value="Aucun" defaultValue>Aucun</option>
+                    <option value="Programmation">Programmation</option>
+                    <option value="Animation 3D">Animation 3D</option>
+                    <option value="Musique">Musique</option>
                     <option value="Saisie des données">Saisie des données</option>
                     <option value="Wordpress">Wordpress</option>
                     <option value="Photographie">Photograhie</option>
+                    <option value="Conception logo">Conception</option>
+                    <option value="Marketing digital">Marketing digital</option>
+                    <option value="Montage video">Montage video</option>
+                    <option value="Dessin">Dessin</option>
+                    <option value="Business">Business</option>
+
+
                   </select>
                   <label htmlFor="">Image de couverture</label>
                   <input type="file" />
