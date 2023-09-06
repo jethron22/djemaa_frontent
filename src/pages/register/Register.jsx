@@ -59,7 +59,7 @@ function Register() {
   return (
     <div className=''>
       <form onSubmit={handleSubmit}>
-        <div className='md:flex md:justify-around lg:70% md:w-[70%] md:m-auto md:mt-5 mt-5  p-5 sm:justify-around'>
+        <div className='md:flex md:justify-around lg:70% md:w-[70%] md:m-auto md:mt-3 mt-5  p-5 sm:justify-around'>
           {<div className='flex flex-col sm:w-72 md:w-72 '>
             <p className='text-3xl text-gray-600 font-bold'>Créer un nouveau compte</p>
             <br />

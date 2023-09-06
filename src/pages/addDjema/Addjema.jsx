@@ -24,7 +24,7 @@ export default function Addjema() {
     })
   }
 
-  console.log(state)
+
   const currentUser = getCurrentUser()
 
   const handleFeature = (e) => {
@@ -185,12 +185,15 @@ export default function Addjema() {
                     onChange={handleChange}
                     name="title"
                     type="text"
-                    placeholder="e.g. I will do something I'm really good at"
+                    placeholder="ex: Je vais traduire votre CV en anglais"
                   />
                   <label htmlFor="">Categorie</label>
-                  <select
-                    onChange={handleChange}
-                    name="cat" id="cat">
+
+
+                  <select className=""
+                    onChange={handleChange} name="cat" id="cat">
+
+
                     <option value="Aucun" defaultValue>Aucun</option>
                     <option value="Programmation">Programmation</option>
                     <option value="Animation 3D">Animation 3D</option>
@@ -206,6 +209,8 @@ export default function Addjema() {
 
 
                   </select>
+
+
                   <label htmlFor="">Image de couverture</label>
                   <input type="file" />
                   <label htmlFor="">Téléverser une image</label>
@@ -217,13 +222,13 @@ export default function Addjema() {
 
                   <button onClick={handleSubmit} className="bg-red-700">Créer</button>
 
-
-
                 </div>
                 <div className="details">
+                  
                   <label htmlFor="">Titre du service</label>
                   <input onChange={handleChange} name="shortTitle" type="text" placeholder="e.g. One-page web design" />
                   <label htmlFor="">Courte Description</label>
+
                   <textarea
                     onChange={handleChange}
                     name="shortDesc" id="" placeholder="Short description of your service" cols="30" rows="10"></textarea>

@@ -42,16 +42,27 @@ function Featured() {
           </div>
 
           <div className="categories">
+            
             <button onClick={handleChange} target="blank" value="Design web" name="Découvrez le monde des UI et UX designers " id="Web & Webdesign">Design web</button>
+
             <button onClick={handleChange} target="blank" value="Wordpress" name="Mettez votre marque en ligne avec Wordpress" id="developpement web > wordpress">WordPress</button>
+
             <button onClick={handleChange} target="blank" value="Conception logo" name="Démarquez-vous avec un Logo Flippant" id="Art > Graphisme > Logo">Conception logo</button>
+
             <button onClick={handleChange} target="blank" value="Photographie" name="Immortaliser vos souvenir par des images" id="Art > Photographie">Photographie</button>
+
             <button onClick={handleChange} target="blank" value="Saisie des données" name="Saisissez vos données en un seul clic" id="Saisie > Saisie des données">Saisie des données</button>
+
             <button onClick={handleChange} target="blank" value="Programmation" name="Developper votre application from scratch.." id="Developpemment web > Programmation">Programmation</button>
+
             <button onClick={handleChange} target="blank" value="Rédaction" name="Rédiger vos documents en moins de temps" id="Redaction > Redaction">Redaction</button>
+
             <button onClick={handleChange} target="blank" value="Graphisme & design" name="Trouvez une meilleure image graphique de votre marque" id="Art > Graphisme > Design">Graphisme & design</button>
+
             <button onClick={handleChange} target="blank" value="Marketing digital" name="Faites connaitre ce que vous faites maintenant !" id="Marketing > Marketing Digital">Marketing digital</button>
+
             <button onClick={handleChange} target="blank" value="Traduction" name="Trouver des meilleurs opportunités par la traduction des langues" id="Langue > Traduction">Traduction</button>
+
           </div>
 
           <div>
