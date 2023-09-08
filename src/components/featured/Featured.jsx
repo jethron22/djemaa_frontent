@@ -28,7 +28,7 @@ function Featured() {
       <div className="container ">
         <div className="left">
           <h1 className="font font-extrabold">
-            Rencontrez un <span className="text-green-400">talent </span> pour lancer votre business
+            Trouvez un meilleur <span className="text-green-400">talent </span> pour realiser votre projet
           </h1>
           <div className="search">
             <div className="searchInput w-[470px]">
@@ -43,9 +43,9 @@ function Featured() {
 
           <div className="categories">
             
-            <button onClick={handleChange} target="blank" value="Design web" name="Découvrez le monde des UI et UX designers " id="Web & Webdesign">Design web</button>
+            <button onClick={handleChange} target="blank" value="Animation 3D" name="Animez tout ce que vous voulez, comme de la magie, avec des pros.." id="Art > Animation 3D">Animation 3D</button>
 
-            <button onClick={handleChange} target="blank" value="Wordpress" name="Mettez votre marque en ligne avec Wordpress" id="developpement web > wordpress">WordPress</button>
+            <button onClick={handleChange} target="blank" value="Wordpress" name="Mettez rapidemment votre site en ligne avec Wordpress" id="developpement web > wordpress">WordPress</button>
 
             <button onClick={handleChange} target="blank" value="Conception logo" name="Démarquez-vous avec un Logo Flippant" id="Art > Graphisme > Logo">Conception logo</button>
 

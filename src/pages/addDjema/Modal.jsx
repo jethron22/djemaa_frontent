@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 import { AiFillCheckCircle } from "react-icons/ai"
 
 
+
 const SuccessModal = () => {
   const [open, setOpen] = useState(true)
 
   const currentUser = getCurrentUser()
 
   const cancelButtonRef = useRef(null)
+
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -41,27 +43,29 @@ const SuccessModal = () => {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full md:w-full md:h-full sm:max-w-lg">
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <AiFillCheckCircle className=' text-green-600' size={28} />
-                    </div>
+                    
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h2" className="text-base font-semibold leading-6 text-gray-900">
-                        <span className='text-3xl'>Félicitation, {currentUser?.username}</span>
+                        <span className='text-3xl mx-10 '>Bienvenue <span className='text-green-600'> {currentUser?.username}</span></span>
                       </Dialog.Title>
                       <div className="mt-5 mb-3">
 
-                        <p className="text-sm text-gray-500 font-semibold ">
+                        <p className="text-sm text-gray-500 flex gap-2  font-semibold ">
 
-                          -Are you sure you want to deactivate your account? All of your data will be  permanently removed. This action cannot be undone.
+                          -Nous sommes la première plate-forme en ligne, sur lequel vous pouvez trouver et travailler avec des freelances,
 
                           <br /> <br />
 
-                          -Are you sure you want to deactivate your account? All of your data will be permanently
-                          removed. This action cannot be undone.
+                          -Où que vous soyez en Afrique, Filtrer les freelances selon le pays où vous vous localisez, est un simple Jeu..
                           <br /> <br />
 
-                          -Are you sure you want to deactivate your account? All of your data will be permanently
-                          removed. This action cannot be undone.
+                          -Peu importe votre budget, filtrez les services (djemaa) selon vos souhaits et trouvez quelqu'un pour le faire,
+                          <br /> <br />
+
+                          -Échangez avec le freelance (Djemadarii), directement sur Djemaa, pour engager une solide confiance entre vous !
+                          <br /> <br />
+
+                          -Choisissez un moyen de payement selon vos entente, et payez le freelance, une fois le travail terminé !
 
                         </p>
                       </div>
@@ -69,24 +73,17 @@ const SuccessModal = () => {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-5 py-4 sm:flex sm:flex-row-reverse sm:px-6">
-                  <Link to="/">
-                    <button
+                  
+                    <div
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
+                      
+                      className="inline-flex w-full cursor-pointer justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold  text-white shadow-sm hover:bg-green-800 sm:ml-3 sm:w-auto"
                       onClick={() => setOpen(false)}
                     >
-                      Continuer
+                     Merci, j'ai compris
 
-                    </button>
-                  </Link>
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
-                  >
-                    Se connecter
-                  </button>
+                    </div>
+                 
                 </div>
               </Dialog.Panel>
             </Transition.Child>

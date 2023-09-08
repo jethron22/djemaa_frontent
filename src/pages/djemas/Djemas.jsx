@@ -22,6 +22,7 @@ function Djemas() {
   const { cat } = useParams();
   const { name } = useParams();
   const { id } = useParams();
+  const {allcat} = useParams()
 
   const { error, data, isLoading, refetch } = useQuery({
     queryKey: ["djemas"],
@@ -74,9 +75,6 @@ function Djemas() {
               <DjemaCardSkeleton />
             </div>
 
-          
-        
-
 
         : error ? <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
 
@@ -84,11 +82,13 @@ function Djemas() {
             <img className="w-32 h-30" src={logi_djemaa} />
           </p>
           <p className="text-green-700 font-light flex justify-center mt-5">
-            <span onClick={handlerLoginNavigate} className="flex underline cursor-pointer ">Connectez-vous pour voir cette page </span>
+            <span onClick={handlerLoginNavigate} className="flex text-1xl underline cursor-pointer "> Désolé, vous devez etre connecté pour voir cette page </span>
           </p>
         </div> : <div className="container">
           <span className="breadcrumbs">{id}</span>
+
           <p className="text-3xl">{cat}</p>
+          <p>{allcat}</p>
           <p>
             {name}
           </p>

@@ -15,13 +15,12 @@ function HeroSections1() {
                     <p className='mt-10 w-[80%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nemo quaerat iusto doloribus saepe dolores! Nemo earum sequi provident odit, reiciendis dolor enim dolorem molestiae voluptate dolore pariatur nostrum veritatis!</p>
 
                     <div className='mt-10'>
-                        <Link to="/djemas?cat">
+                        <Link to="/djemas?cat" target='blank'>
                         <button className='bg-green-600 text-white flex gap-3 items-center rounded p-3'>
                             <span className='font-semibold'>Commencer maintenant</span> <span className='animate-bounce'><AiOutlineArrowRight size={23} /></span>
                         </button>
                         </Link>
                     </div>
-
                 </div>
                 <div className='w-[100%] items-center mx-2 ml-12 flex'>
                     <video src={djemadari_pres} controls />

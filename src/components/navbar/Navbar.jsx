@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
@@ -30,6 +31,15 @@ function Navbar() {
 
     }
   }
+
+  const handleChange = (e) => {
+
+    const allcat = e.target.value;
+    navigate(`/djemas/${allcat}?cat`)
+
+  }
+
+ 
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -85,10 +95,10 @@ function Navbar() {
               {open && <div className="options ">
                 {currentUser.isSeller && (
                   <>
-                    <Link className="link flex items-center gap-2 " to="/djemas?search">
+                    <div className="link flex items-center gap-2" onClick={handleChange} value={"Des Freelances pret pour vous servir"} >
                       <span>Tous les Djemaas</span>
                       <span><BsFillArrowUpRightSquareFill /></span>
-                    </Link>
+                    </div>
                     <Link className="link flex items-center gap-2 " to="/add-djemaa">
                       <span><BsPlusLg /></span>
                       <span> Ajouter un Djemaa </span>

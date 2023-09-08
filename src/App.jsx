@@ -17,7 +17,7 @@ import {
   QueryClientProvider,
 
 } from '@tanstack/react-query'
-import WelcomePage from "./pages/register/WelcomePage";
+import WelcomePage from "./pages/home/WelcomePage";
 
 
 function App() {
@@ -52,8 +52,9 @@ function App() {
           element: <Djemas />
         },
         {
-          path: "/djemas",
-          element: <Djemas />
+          path: "/djemas/:allcat",
+          element: <Djemas />,
+         
         },
         {
           path: "/djema/:id",
