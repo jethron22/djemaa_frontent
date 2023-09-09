@@ -12,7 +12,8 @@ import logi_djemaa from "../djema/logi_djemaa.gif"
 import DjemaCardSkeleton from "../../skeleton/DjemaCardSkeleton";
 import LoginUserDataDjemaCard from "../../skeleton/LoginUserDataDjemaCard";
 import ReactPaginate from "react-paginate";
-import { BsArrowRightCircle, BsArrowLeftCircle, BsEnvelopeExclamationFill } from "react-icons/bs";
+import { BsArrowRightCircle, BsArrowLeftCircle} from "react-icons/bs";
+import DjemasSecondSection from "./DjemasSecondSection";
 
 function Djemas() {
   const [sort, setSort] = useState("sales");
@@ -24,14 +25,13 @@ function Djemas() {
   const [filterData, setFilterData] = useState();
   const n = 8
 
-
   const { search } = useLocation()
   const { cat } = useParams();
   const { name } = useParams();
   const { id } = useParams();
   const { allcat } = useParams()
 
-  const { error, data, isLoading, refetch, isPreviousData } = useQuery({
+  const { error, data, isLoading, refetch } = useQuery({
     queryKey: ["djemas"],
     queryFn: () =>
       newRequest
@@ -75,8 +75,8 @@ function Djemas() {
   console.log(data)
 
   return (
-    <div className="djemas flex flex-col flex-wrap">
-
+    <div>
+    <div className="djemas flex flex-wrap">
       {curentUser && <div>
         <span>{ }</span>
       </div>}
@@ -207,8 +207,14 @@ function Djemas() {
 
         </div>
       }
-    </div>
 
+     
+    </div>
+    <hr />
+    <div className="mt-20">
+        <DjemasSecondSection />
+      </div>
+    </div>
   )
 }
 
