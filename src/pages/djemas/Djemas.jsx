@@ -11,6 +11,8 @@ import getCurrentUser from "../../utils/getCurrentUser";
 import logi_djemaa from "../djema/logi_djemaa.gif"
 import DjemaCardSkeleton from "../../skeleton/DjemaCardSkeleton";
 import LoginUserDataDjemaCard from "../../skeleton/LoginUserDataDjemaCard";
+import ReactPaginate from "react-paginate";
+import { BsArrowRightCircle, BsArrowLeftCircle, BsEnvelopeExclamationFill } from "react-icons/bs";
 
 function Djemas() {
   const [sort, setSort] = useState("sales");
@@ -18,18 +20,29 @@ function Djemas() {
   const minRef = useRef();
   const maxRef = useRef();
 
+  const [page, setPage] = useState(0);
+  const [filterData, setFilterData] = useState();
+  const n = 8
+
+
   const { search } = useLocation()
   const { cat } = useParams();
   const { name } = useParams();
   const { id } = useParams();
-  const {allcat} = useParams()
+  const { allcat } = useParams()
 
-  const { error, data, isLoading, refetch } = useQuery({
+  const { error, data, isLoading, refetch, isPreviousData } = useQuery({
     queryKey: ["djemas"],
     queryFn: () =>
       newRequest
         .get(`/djemas${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`)
         .then((res) => {
+
+          setFilterData(
+            data?.filter((item, index) => {
+              return (index >= page * n) & (index < (page + 1) * n);
+            })
+          );
 
           return res.data;
 
@@ -46,7 +59,7 @@ function Djemas() {
 
   useEffect(() => {
     refetch()
-  }, [sort])
+  }, [sort, page, data])
 
   const apply = () => {
     refetch()
@@ -59,21 +72,23 @@ function Djemas() {
   }
 
 
+  console.log(data)
+
   return (
     <div className="djemas flex flex-col flex-wrap">
 
-            {curentUser && <div>
-              <span>{}</span>
-            </div>}
+      {curentUser && <div>
+        <span>{ }</span>
+      </div>}
 
       {!curentUser && isLoading ?
 
-        
-          
 
-            <div>
-              <DjemaCardSkeleton />
-            </div>
+
+
+        <div>
+          <DjemaCardSkeleton />
+        </div>
 
 
         : error ? <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
@@ -119,21 +134,49 @@ function Djemas() {
               <button onClick={apply}>Trouver</button>
             </div>
           </div>
-          <div className="cards flex justify-center w-[1200px]">
 
+
+          {/* THIS IS PAGINATION COMPONENTS BUTTONS */}
+
+          <div className="flex justify-around">
+            <ReactPaginate
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              activeClassName={"active_pagination"}
+              onPageChange={(event) => setPage(event.selected)}
+              pageCount={Math.ceil(data?.length / n)}
+              breakLabel="..."
+              previousLabel={
+
+                <BsArrowLeftCircle size={35} />
+
+              }
+              nextLabel={
+
+                <BsArrowRightCircle size={35} />
+              }
+            />
+          </div>
+
+          {/* END OF PAGINATION COMPONENTS BUTTONS */}
+
+
+
+          <div className="cards flex justify-center w-[1200px]">
             {isLoading ?
 
               <LoginUserDataDjemaCard />
 
               : error ?
 
-                <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : data.map((djema) => (
+                <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : filterData && filterData.map((djema) => (
                   <DjemaCard key={djema._id} item={djema} />
                 ))}
           </div>
           <div>
 
           </div>
+
         </div>
       }
     </div>

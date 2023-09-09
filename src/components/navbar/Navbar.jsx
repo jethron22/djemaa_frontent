@@ -88,7 +88,7 @@ function Navbar() {
               {open && <div className="options ">
                 {currentUser.isSeller && (
                   <>
-                    <Link to="/djemas?cat">
+                    <Link to="/djemas?cat" target="blank">
                       <div className="link flex items-center gap-2">
                         <span>Tous les Djemaas</span>
                         <span><BsFillArrowUpRightSquareFill /></span>

@@ -111,3 +111,44 @@
       }
     }
   }
+
+  //CSS FOR PAGINATION COMPONENTS BUTTONS
+
+  .App {
+    display: flex;
+    font-family: sans-serif;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .pagination {
+    list-style: none;
+    height: 31.5px;
+    width: 31.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    cursor: pointer;
+    
+  }
+  
+  .active_pagination {
+    background-color: green;
+    border-radius: 50%;
+    color: white;
+  }
+  
+  .page-item {
+    list-style: none;
+    padding: 2px 12px;
+    height: 31.5px;
+    width: 31.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+  }
