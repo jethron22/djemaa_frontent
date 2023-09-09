@@ -16,6 +16,8 @@ import logi_djemaa from "./logi_djemaa.gif"
 function Djema() {
 
 
+
+
   const { id } = useParams()
 
   const { error, data, isLoading } = useQuery({
@@ -110,7 +112,7 @@ function Djema() {
               <span className="breadcrumbs "> {data?.cat} </span>
               </div>
               <h1 className="text-3xl">{data?.title}</h1>
-              <p>Service publié il y a {dayDiff(new Date(data?.updatedAt))} jours</p>
+              <p>Service publié par {dataUser?.username} il y a {dayDiff(new Date(data?.updatedAt))} jours</p>
               {isLoadingUser ?
 
                 "chargement encours"

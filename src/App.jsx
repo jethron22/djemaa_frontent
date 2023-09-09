@@ -52,7 +52,7 @@ function App() {
           element: <Djemas />
         },
         {
-          path: "/djemas/:allcat",
+          path: "/djemas",
           element: <Djemas />,
          
         },

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {useParams} from "react-router-dom";
 import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
 import newRequest from "../../utils/newRequest";
-import { AiOutlineLogin } from "react-icons/ai";
 import { BsPersonFillCheck, BsAward, BsSliders, BsFillArrowUpRightSquareFill, BsPlusLg, BsSortDown, BsBoxSeamFill, BsChatLeftDots, BsBoxArrowRight, BsBoxArrowInRight, BsPersonCircle } from "react-icons/bs";
 
 
@@ -32,14 +30,9 @@ function Navbar() {
     }
   }
 
-  const handleChange = (e) => {
 
-    const allcat = e.target.value;
-    navigate(`/djemas/${allcat}?cat`)
 
-  }
 
- 
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -73,32 +66,34 @@ function Navbar() {
             <span className="cursor-pointer">Djemaa boost</span>
           </div>
 
-            {!currentUser?.isSeller &&
-              <Link to="/register">
+          {!currentUser?.isSeller &&
+            <Link to="/register">
               <div className="flex items-center gap-1">
-              
+
                 <span className="mb-1"><BsAward size={15} /></span>
                 <span className="flex cursor-pointer">Ouvrir un compte prestataire</span>
-             
-              </div>
-              </Link>
 
-            }
+              </div>
+            </Link>
+
+          }
 
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
-              
-                {currentUser.img || <BsPersonCircle color="gray" size={35} />}
-              
+
+              {currentUser.img || <BsPersonCircle color="gray" size={35} />}
+
               <span className=""> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
               {open && <div className="options ">
                 {currentUser.isSeller && (
                   <>
-                    <div className="link flex items-center gap-2" onClick={handleChange} value={"Des Freelances pret pour vous servir"} >
-                      <span>Tous les Djemaas</span>
-                      <span><BsFillArrowUpRightSquareFill /></span>
-                    </div>
+                    <Link to="/djemas?cat">
+                      <div className="link flex items-center gap-2">
+                        <span>Tous les Djemaas</span>
+                        <span><BsFillArrowUpRightSquareFill /></span>
+                      </div>
+                    </Link>
                     <Link className="link flex items-center gap-2 " to="/add-djemaa">
                       <span><BsPlusLg /></span>
                       <span> Ajouter un Djemaa </span>
