@@ -121,7 +121,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: white;
+   
   }
   
   .pagination {
@@ -140,6 +140,8 @@
     background-color: green;
     border-radius: 50%;
     color: white;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   
   .page-item {

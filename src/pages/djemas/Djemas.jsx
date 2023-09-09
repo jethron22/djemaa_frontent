@@ -138,7 +138,7 @@ function Djemas() {
 
           {/* THIS IS PAGINATION COMPONENTS BUTTONS */}
 
-          <div className="flex justify-around">
+          {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-12">
             <ReactPaginate
               containerClassName={"pagination"}
               pageClassName={"page-item"}
@@ -156,7 +156,7 @@ function Djemas() {
                 <BsArrowRightCircle size={35} />
               }
             />
-          </div>
+          </div>}
 
           {/* END OF PAGINATION COMPONENTS BUTTONS */}
 
@@ -176,6 +176,34 @@ function Djemas() {
           <div>
 
           </div>
+
+          {/* THIS IS PAGINATION COMPONENTS BUTTONS */}
+
+         {isLoading ? "chargement" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-12">
+            <ReactPaginate
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              activeClassName={"active_pagination"}
+              onPageChange={(event) => setPage(event.selected)}
+              pageCount={Math.ceil(data?.length / n)}
+              breakLabel="..."
+              previousLabel={
+                <span className="">
+                  <BsArrowLeftCircle size={35} />
+                </span>
+
+
+              }
+              nextLabel={
+                <span className="">
+                  <BsArrowRightCircle size={35} />
+                </span>
+
+              }
+            />
+          </div>}
+
+          {/* END OF PAGINATION COMPONENTS BUTTONS */}
 
         </div>
       }
