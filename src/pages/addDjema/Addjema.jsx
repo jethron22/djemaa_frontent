@@ -206,6 +206,7 @@ export default function Addjema() {
                     <option value="Montage video">Montage video</option>
                     <option value="Dessin">Dessin</option>
                     <option value="Business">Business</option>
+                    <option value="Rédaction">Rédaction</option>
 
 
                   </select>
