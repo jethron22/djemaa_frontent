@@ -71,8 +71,10 @@ function Djemas() {
     navigate("/login")
   }
 
+const arrayLength = data?.length
+ 
+console.log(data)
 
-  console.log(data)
 
   return (
     <div>
@@ -82,6 +84,8 @@ function Djemas() {
       </div>}
 
       {!curentUser && isLoading ?
+
+
 
 
 
@@ -136,9 +140,11 @@ function Djemas() {
           </div>
 
 
-          {/* THIS IS PAGINATION COMPONENTS BUTTONS */}
+          {/* THIS IS TOP PAGINATION COMPONENTS BUTTONS */}
 
-          {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-12">
+          {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-between ">
+          <span>Actuellement {arrayLength} services disponibles</span>
+          <span className="mx-20">
             <ReactPaginate
               containerClassName={"pagination"}
               pageClassName={"page-item"}
@@ -156,11 +162,10 @@ function Djemas() {
                 <BsArrowRightCircle size={35} />
               }
             />
+            </span>
           </div>}
 
-          {/* END OF PAGINATION COMPONENTS BUTTONS */}
-
-
+          {/* END OF TOP PAGINATION COMPONENTS BUTTONS */}
 
           <div className="cards flex justify-center w-[1200px]">
             {isLoading ?
@@ -177,9 +182,9 @@ function Djemas() {
 
           </div>
 
-          {/* THIS IS PAGINATION COMPONENTS BUTTONS */}
+          {/* THIS IS BOTTOM PAGINATION COMPONENTS */}
 
-         {isLoading ? "chargement" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-12">
+         {isLoading ? "chargement" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-16">
             <ReactPaginate
               containerClassName={"pagination"}
               pageClassName={"page-item"}
@@ -203,14 +208,17 @@ function Djemas() {
             />
           </div>}
 
-          {/* END OF PAGINATION COMPONENTS BUTTONS */}
+          {/* END OF PAGINATION BOTTOM COMPONENTS */}
 
         </div>
       }
 
      
     </div>
+    <div className=" m-auto w-[1200px]">
     <hr />
+    </div>
+   
     <div className="mt-20">
         <DjemasSecondSection />
       </div>

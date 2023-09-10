@@ -201,7 +201,7 @@ export default function Addjema() {
                     <option value="Saisie des données">Saisie des données</option>
                     <option value="Wordpress">Wordpress</option>
                     <option value="Photographie">Photograhie</option>
-                    <option value="Conception logo">Conception</option>
+                    <option value="Conception logo">Conception logo</option>
                     <option value="Marketing digital">Marketing digital</option>
                     <option value="Montage video">Montage video</option>
                     <option value="Dessin">Dessin</option>
