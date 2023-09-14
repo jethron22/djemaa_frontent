@@ -75,6 +75,7 @@ function Djemas() {
 
 
   // THIS FUNCTION  DISPLAY NUMBER OF SERVICES && CATEGORIES PUBLISHED, IN AN ARRAY
+
   const arrayLength = data?.length
 
 
@@ -88,66 +89,108 @@ function Djemas() {
 
         {!curentUser && isLoading ?
 
-
-
-
-
-
           <div>
             <DjemaCardSkeleton />
           </div>
 
+          :
+          error
+            ?
 
-          : error ? <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
+            <div className="mt-20 text-red-500 flex justify-center flex-col font-semibold">
 
-            <p className="flex justify-center">
-              <img className="w-32 h-30" src={logi_djemaa} />
-            </p>
-            <p className="text-green-700 font-light flex justify-center mt-5">
-              <span onClick={handlerLoginNavigate} className="flex text-1xl underline cursor-pointer "> Désolé, vous devez etre connecté pour voir cette page </span>
-            </p>
-          </div> : <div className="container">
-            <span className="breadcrumbs">{id}</span>
+              <p className="flex justify-center">
+                <img className="w-32 h-30" src={logi_djemaa} />
+              </p>
+              <p className="text-green-700 font-light flex justify-center mt-5">
+                <span onClick={handlerLoginNavigate} className="flex text-1xl underline cursor-pointer "> Désolé, vous devez etre connecté pour voir cette page </span>
+              </p>
+            </div> : <div className="container">
+              <span className="breadcrumbs ">{id}</span>
 
-            <p className="text-3xl">{cat}</p>
-            <p>{allcat}</p>
-            <p>
-              {name}
-            </p>
-            <div className="menu">
+              <p className="text-3xl">{cat}</p>
+              <p>{allcat}</p>
+              <p>
+                {name}
+              </p>
+              <div className="menu">
 
-              <div className="right">
-                <span className="sortBy">Trier selon: </span>
-                <span className="sortType">
-                  {sort === "sales" ? "Meilleures ventes" : "Nouveautés"}
+                <div className="right">
+                  <span className="sortBy">Trier selon: </span>
+                  <span className="sortType">
+                    {sort === "sales" ? "Meilleures ventes" : "Nouveautés"}
+                  </span>
+                  <span className="cursor-pointer" onClick={() => setOpen(!open)}><AiFillCaretDown color="green" /></span>
+                  {open && (
+                    <div className="rightMenu">
+                      {sort === "sales" ? (
+                        <span onClick={() => reSort("createdAt")}>Nouveautés</span>
+                      ) : (
+                        <span onClick={() => reSort("sales")}>Meilleures ventes</span>
+                      )}
+
+                    </div>
+
+                  )}
+
+
+              </div>
+                <div className="left">
+                  <span>Budget</span>
+                  <input ref={minRef} type="number" placeholder="Min." />
+                  <input ref={maxRef} type="number" placeholder="Max." />
+                  <button onClick={apply}>Trouver</button>
+                </div>
+              </div>
+
+              {/* THIS IS TOP PAGINATION COMPONENTS BUTTONS */}
+
+              {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-between ">
+
+                {/* NUMBER OF SERVICES DISPLAYED HERE */}
+                <span className="text-gray-600">Actuellement, {arrayLength} services disponibles</span>
+
+                <span className="mx-20">
+                  <ReactPaginate
+                    containerClassName={"pagination"}
+                    pageClassName={"page-item"}
+                    activeClassName={"active_pagination"}
+                    onPageChange={(event) => setPage(event.selected)}
+                    pageCount={Math.ceil(data?.length / n)}
+                    breakLabel="..."
+                    previousLabel={
+
+                      <BsArrowLeftCircle size={35} color="gray" />
+
+                    }
+                    nextLabel={
+
+                      <BsArrowRightCircle size={35} color="gray" />
+                    }
+                  />
                 </span>
-                <span className="cursor-pointer" onClick={() => setOpen(!open)}><AiFillCaretDown color="green" /></span>
-                {open && (
-                  <div className="rightMenu">
-                    {sort === "sales" ? (
-                      <span onClick={() => reSort("createdAt")}>Nouveautés</span>
-                    ) : (
-                      <span onClick={() => reSort("sales")}>Meilleures ventes</span>
-                    )}
+              </div>}
 
-                  </div>
+              {/* END OF TOP PAGINATION COMPONENTS BUTTONS */}
 
-                )}
+              <div className="cards flex justify-center w-[1200px]">
+                {isLoading ?
+
+                  <LoginUserDataDjemaCard />
+
+                  : error ?
+
+                    <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : filterData && filterData.map((djema) => (
+                      <DjemaCard key={djema._id} item={djema} />
+                    ))}
               </div>
-              <div className="left">
-                <span>Budget</span>
-                <input ref={minRef} type="number" placeholder="Min." />
-                <input ref={maxRef} type="number" placeholder="Max." />
-                <button onClick={apply}>Trouver</button>
+              <div>
+
               </div>
-            </div>
 
+              {/* THIS IS BOTTOM PAGINATION COMPONENTS */}
 
-            {/* THIS IS TOP PAGINATION COMPONENTS BUTTONS */}
-
-            {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-between ">
-              <span>Actuellement {arrayLength} services disponibles</span>
-              <span className="mx-20">
+              {isLoading ? "chargement" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-16">
                 <ReactPaginate
                   containerClassName={"pagination"}
                   pageClassName={"page-item"}
@@ -156,64 +199,24 @@ function Djemas() {
                   pageCount={Math.ceil(data?.length / n)}
                   breakLabel="..."
                   previousLabel={
+                    <span className="">
+                      <BsArrowLeftCircle size={35} color="gray" />
+                    </span>
 
-                    <BsArrowLeftCircle size={35} color="gray" />
 
                   }
                   nextLabel={
+                    <span className="">
+                      <BsArrowRightCircle size={35} color="gray" />
+                    </span>
 
-                    <BsArrowRightCircle size={35} color="gray" />
                   }
                 />
-              </span>
-            </div>}
+              </div>}
 
-            {/* END OF TOP PAGINATION COMPONENTS BUTTONS */}
-
-            <div className="cards flex justify-center w-[1200px]">
-              {isLoading ?
-
-                <LoginUserDataDjemaCard />
-
-                : error ?
-
-                  <div className="justify-center animate-pulse items-center m-auto mt-20"><div className="font-semibold gap-2 flex items-center text-red-700"><span className="  flex"> <AiFillAlert size={25} /></span><span className="mt-1">Erreur lors de chargement des djemas...</span></div></div> : filterData && filterData.map((djema) => (
-                    <DjemaCard key={djema._id} item={djema} />
-                  ))}
-            </div>
-            <div>
+              {/* END OF PAGINATION BOTTOM COMPONENTS */}
 
             </div>
-
-            {/* THIS IS BOTTOM PAGINATION COMPONENTS */}
-
-            {isLoading ? "chargement" : error ? "Erreur lors de chargement" : <div className="flex justify-end p-5 mx-16">
-              <ReactPaginate
-                containerClassName={"pagination"}
-                pageClassName={"page-item"}
-                activeClassName={"active_pagination"}
-                onPageChange={(event) => setPage(event.selected)}
-                pageCount={Math.ceil(data?.length / n)}
-                breakLabel="..."
-                previousLabel={
-                  <span className="">
-                    <BsArrowLeftCircle size={35} color="gray" />
-                  </span>
-
-
-                }
-                nextLabel={
-                  <span className="">
-                    <BsArrowRightCircle size={35} color="gray" />
-                  </span>
-
-                }
-              />
-            </div>}
-
-            {/* END OF PAGINATION BOTTOM COMPONENTS */}
-
-          </div>
         }
 
 

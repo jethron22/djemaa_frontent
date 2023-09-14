@@ -27,6 +27,7 @@
     .stars {
       display: flex;
       gap: 5px;
+      color: green;
 
       img {
         height: 14px;
@@ -36,7 +37,7 @@
       span {
         font-size: 14px;
         font-weight: bold;
-        color: #ffc108;
+        color: rgb(87, 87, 87);
       }
     }
 

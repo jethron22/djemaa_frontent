@@ -1,15 +1,18 @@
 import React from 'react';
 import './messages.scss';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
-import moment from "moment"
+import { useMutation } from '@tanstack/react-query';
 
 export default function Messages() {
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
+  const queryClient = useQueryClient()
+
   const { error, data, isLoading } = useQuery({
+
     queryKey: ["conversations"],
     queryFn: () =>
       newRequest
@@ -24,7 +27,7 @@ export default function Messages() {
 
   console.log(data)
 
-  const dayDiff =(date)=> {
+  const dayDiff = (date) => {
     const now = new Date();
     const diff = now - date;
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -32,14 +35,33 @@ export default function Messages() {
   }
 
 
+  const mutation = useMutation({
+    mutationFn: (id) => {
+      return newRequest.put(`/conversations/${id}`);
+    },
+
+    onSuccess: () => {
+
+      queryClient.invalidateQueries(["conversations"])
+
+    }
+
+  })
+
+
+  const handleRead = (id) => {
+    mutation.mutate(id)
+  }
+
+
   return (
-    
+
     <div className="messages">
 
       {isLoading
         ?
         <div className="flex justify-center items-center m-auto mt-20 ">
-       
+
           <div
             class=" flex text-green-600 h-8 w-8 animate-spin  rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status">
@@ -64,26 +86,30 @@ export default function Messages() {
             </div>
             <table>
               <tr>
-                <th>{currentUser.isSeller ? "Client" : "Prestataire"}</th>
+                {/* <th>{currentUser.isSeller ? c?.buyerId : c?.sellerId}</th> */}
                 <th>Message récent</th>
                 <th>Date</th>
                 <th>Action</th>
               </tr>
 
               {data.map((c) => (
-                <tr className="active" key={c._id}>
+                <tr className={(!c?.readBySeller && currentUser?.isSeller) || (!c?.readBySeller && !currentUser?.isSeller) &&
+
+                  "active"
+
+                } key={c.id}>
                   <td></td>
                   <td>
-                    <Link to="/message/123" className="link">
-                      {c?.lastMessage?.substring(0, 100)}...
+                    <Link to={`/message/${c.id}`} className="link">
+                      {c?.desc?.substring(0, 100)}...
                     </Link>
                   </td>
-                  <td>il y a {dayDiff(new Date(c.updatedAt))} jours</td>
+                  <td>il y a {dayDiff(new Date(c?.updatedAt))} jours</td>
 
                   <td>
-                    {(currentUser.isSeller && !c.readBySeller) || (!currentUser.isSeller && !c.readByBuyer) && 
+                    {(currentUser?.isSeller && !c?.readBySeller) || (!currentUser?.isSeller && c?.readBySeller) &&
 
-                      <button>Marquer comme lu</button>
+                      (<button onClick={() => handleRead(c?.id)}>Marquer comme lu</button>)
 
                     }
                   </td>

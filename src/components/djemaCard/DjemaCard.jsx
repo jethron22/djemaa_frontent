@@ -72,7 +72,7 @@ const DjemaCard = ({ item }) => {
           </div>
           <div className="price font-semibold">
             <span>à partir de</span>
-            <p className="text-lg">${item.price}<sup>99</sup>
+            <p className="text-lg text-center">${item.price}
             </p>
           </div>
 

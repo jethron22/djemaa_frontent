@@ -16,6 +16,7 @@ function Featured() {
   }
 
   const [input, setInput] = useState("")
+
   const navigate = useNavigate()
   const handleSubmit = () => {
 
@@ -64,7 +65,6 @@ function Featured() {
             <button onClick={handleChange} target="blank" value="Montage video" name="Présenter votre marque au public, concretement !" id="Art > Montage video">Montage video</button>
 
           </div>
-
           <div>
             <p>
               <span></span>
@@ -78,5 +78,6 @@ function Featured() {
     </div>
   );
 }
+
 
 export default Featured;

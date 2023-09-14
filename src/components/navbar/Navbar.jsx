@@ -4,7 +4,7 @@ import "./Navbar.scss";
 import logo_djemadari from '../img/logo_djemadari.png'
 import { AiFillCaretDown } from "react-icons/ai"
 import newRequest from "../../utils/newRequest";
-import { BsPersonFillCheck, BsAward, BsSliders, BsFillArrowUpRightSquareFill, BsPlusLg, BsSortDown, BsBoxSeamFill, BsChatLeftDots, BsBoxArrowRight, BsBoxArrowInRight, BsPersonCircle } from "react-icons/bs";
+import { BsPersonFillCheck, BsAward, BsSliders, BsPlusLg, BsSortDown, BsBoxSeamFill, BsChatLeftDots, BsBoxArrowRight, BsBoxArrowInRight, BsArrowsFullscreen, BsPersonCircle } from "react-icons/bs";
 
 
 function Navbar() {
@@ -30,10 +30,6 @@ function Navbar() {
     }
   }
 
-
-
-
-
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
   };
@@ -44,8 +40,6 @@ function Navbar() {
       window.removeEventListener("scroll", isActive);
     };
   }, []);
-
-  // const currentUser = null
 
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
@@ -86,14 +80,8 @@ function Navbar() {
               <span className=""> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
               {open && <div className="options ">
-                {currentUser.isSeller && (
+                {currentUser?.isSeller && (
                   <>
-                    <Link to="/djemas?cat" target="blank">
-                      <div className="link flex items-center gap-2">
-                        <span>Tous les Djemaas</span>
-                        <span><BsFillArrowUpRightSquareFill /></span>
-                      </div>
-                    </Link>
                     <Link className="link flex items-center gap-2 " to="/add-djemaa">
                       <span><BsPlusLg /></span>
                       <span> Ajouter un Djemaa </span>
@@ -103,8 +91,25 @@ function Navbar() {
                       <span><BsSortDown /></span>
                       <span> Mes Djemas</span>
                     </Link>
+
+
+
+                    {/* THE PROGRAM DJEMAA BOOST IS COMING SOON */}
+
+                    {/* <Link className="link flex items-center gap-2 " to="/">
+                      <span><BsSortDown /></span>
+                      <span> Booster mes Djemas</span>
+                    </Link> */}
+
+
                   </>
                 )}
+                <Link to="/djemas?cat" target="blank">
+                  <div className="link flex items-center gap-2">
+                  <span><BsArrowsFullscreen /></span>
+                    <span>Tous les Djemaas</span> 
+                  </div>
+                </Link>
                 <Link className="link flex items-center gap-2 " to="/commandes">
                   <span><BsBoxSeamFill /></span>
                   <span>Commandes</span>
@@ -145,7 +150,7 @@ function Navbar() {
         <>
           <hr />
           <div className="menu">
-            <Link className="link menuLink" to="/">
+            <Link className="link menuLink" to="">
               Design graphique
             </Link>
             <Link className="link menuLink" to="/">

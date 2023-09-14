@@ -103,7 +103,7 @@ function Register() {
             <br />
             <p className='flex justify-between mb-3'>
               <span className=''>
-                <label className='font-semibold text-green-500 ' htmlFor=''>Activer un compte prestataire</label>
+                <label className='font-semibold text-green-600 ' htmlFor=''>Activer un compte prestataire</label>
               </span>
 
               <input onChange={handleSeller} type="checkbox" class="peer sr-only opacity-0" id="toggle" />

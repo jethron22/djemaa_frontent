@@ -5,18 +5,18 @@
     .container {
       width: 1400px;
       padding: 50px 0px;
-  
+    
       h1 {
         width: max-content;
         margin-bottom: 30px;
         color: gray;
         font-weight: 300;
       }
-  
+
       .sections {
         display: flex;
         justify-content: space-between;
-        gap: 100px;
+        gap: 50px;
   
         label {
           color: gray;
@@ -73,6 +73,13 @@
             border: 1px solid red;
             border-radius: 10px;
           }
+
+          .item{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+          }
+
           }
         }
       }

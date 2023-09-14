@@ -41,7 +41,7 @@ function Login() {
             {/* <span className='font-extrabold bg-blend-multiply text-6xl text-gray-500'>Connectez-vous maintenant !</span> */}
           </div>
         </div>
-        <div className='flex bg-gray-100 shadow-green-700 shadow-2xl md:w-[35%] md:mt-3 mt-14 flex-col rounded-t-3xl'>
+        <div className='flex bg-gray-100 shadow-2xl md:w-[35%] md:mt-3 mt-14 flex-col rounded-t-3xl'>
           <div className='md:justify-center sm:mb-12 md:flex sm:flex-col p-4'>
             <div className='flex text-3xl mt-5 font-semibold justify-center text-gray-500'>
               <p>CONNEXION</p>
@@ -52,7 +52,7 @@ function Login() {
                 <label htmlFor='' class="sr-only"> votre nom </label>
                 <input className='' onChange={(e) => setUsername(e.target.value)}
 
-                  class="border-solid border-green-500 w-[100%] border rounded px-2 py-3" type="text" name="usern" placeholder="ex: Jéthron" required />
+                  class="border-solid border-green-700 w-[100%] border rounded px-2 py-3" type="text" name="usern" placeholder="ex: Julienne" required />
               </div>
 
               <div>
@@ -60,15 +60,15 @@ function Login() {
 
                 <input onChange={(e) => setPassword(e.target.value)}
 
-                  class="border-solid border-green-500 w-[100%] border outline-none rounded px-2 py-3" type="password" name="pass" placeholder="Votre mot de passe" required />
+                  class="border-solid border-green-700 w-[100%] border outline-none rounded px-2 py-3" type="password" name="pass" placeholder="Votre mot de passe" required />
               </div>
 
               <div className='mt-4'>
-                <span className='font-semibold  text-gray-500'> N'avez vous pas un compte ?</span><span className='text-green-600 underline cursor-pointer' onClick={RegisterhandleNavigate}> S'inscrire</span>
+                <span className='font-semibold  text-gray-500'> N'avez vous pas un compte ?</span><span className='text-green-700 underline cursor-pointer' onClick={RegisterhandleNavigate}> S'inscrire</span>
               </div>
 
               <div className='mt-5'>
-                <button class="bg-green-600 rounded text-white font-bold w-full py-3" type="submit">Se connecter</button>
+                <button class="bg-green-700 rounded text-white font-bold w-full py-3" type="submit">Se connecter</button>
 
                 <p className=' text-red-700 mt-3 mb-0 font-normal '>{Error && Error}</p>
               </div>

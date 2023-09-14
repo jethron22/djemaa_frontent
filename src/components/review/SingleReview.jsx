@@ -40,7 +40,7 @@ console.log(data)
       {Array(review.star).fill().map((item, i)=> (
       <AiFillStar key={i} />
       ))}
-      <span>{review.star}</span>
+      <span className='text-green-600'>{review.star}</span>
     </div>
     <p>
   {review.desc}
