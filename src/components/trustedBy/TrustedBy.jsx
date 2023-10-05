@@ -7,9 +7,9 @@ function TrustedBy() {
       <div className="flex w-[1200px] justify-center m-auto py-8 text-white font-bold text-2xl">
         
             <div className="flex justify-between w-full">
-            <span className='hover:text-green-600 text-gray-400 cursor-pointer duration-200'>+1507 freelances</span>
-            <span className='hover:text-green-600  text-gray-400  cursor-pointer duration-200'>+25 catégories</span>
-            <span className='hover:text-green-600  text-gray-400  cursor-pointer duration-200'> +800 commandes/mois</span>
+            <span className='hover:text-green-600 text-gray-400 cursor-pointer duration-200'>Rapide</span>
+            <span className='hover:text-green-600  text-gray-400  cursor-pointer duration-200'>Fiable</span>
+            <span className='hover:text-green-600  text-gray-400  cursor-pointer duration-200'>Sécurisé</span>
             </div>
         </div>
       </div>

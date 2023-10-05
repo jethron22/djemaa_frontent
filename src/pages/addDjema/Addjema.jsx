@@ -103,7 +103,7 @@ export default function Addjema() {
       <div class="flex rounded-xl justify-end m-3">
         <main class="flex-col w-[73%] ml-4 pr-6">
           <div class="flex justify-between items-center p-4 bg-white mt-3 rounded-xl shadow-lg">
-            <h1 class="text-xl font-bold text-gray-700">Tableau de bord</h1>
+            <h1 class="text-xl font-bold text-gray-700">Votre tableau de bord</h1>
             <div class="flex justify-end w-2/5">
               <div class="flex items-center space-x-3 pr-8">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 cursor-pointer text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,7 +116,7 @@ export default function Addjema() {
           </div>
           <div className="flex gap-3 mt-10 w-2/3 mb-12">
 
-            <span className="text-3xl font-semibold text-gray-600"><span className="text-green-600 text-4xl">{currentUser.username},</span> nous vous offrons un espace de gestion Impécable pour vos projets !</span>
+            <span className="text-3xl font-semibold text-gray-600"><span className="text-green-600 text-4xl"> {currentUser.username},</span> nous vous offrons un espace Impécable pour gérer tous vos services !</span>
           </div>
           <div class="flex justify-between mt-4 space-x-4 s">
             <div class="bg-white w-1/3 p-4 rounded-xl shadow-lg flex items-center justify-around">
@@ -172,7 +172,7 @@ export default function Addjema() {
 
                     onChange={handleChange} name="cat" id="cat">
 
-                    <option value="Aucun" defaultValue>Aucun</option>
+                    <option value="Aucun" defaultValue>Selectionner aucune categorie</option>
                     <option value="Programmation">Programmation</option>
                     <option value="Animation 3D">Animation 3D</option>
                     <option value="Musique">Musique</option>

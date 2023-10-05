@@ -7,7 +7,14 @@ import newRequest from "../../utils/newRequest";
 import { BsPersonFillCheck, BsAward, BsSliders, BsPlusLg, BsSortDown, BsBoxSeamFill, BsChatLeftDots, BsBoxArrowRight, BsBoxArrowInRight, BsArrowsFullscreen, BsPersonCircle } from "react-icons/bs";
 
 
+
 function Navbar() {
+
+
+
+
+
+
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -55,9 +62,9 @@ function Navbar() {
           </Link>
         </div>
         <div className="links gap-0">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center  gap-2">
             <span className="mb-[0.5px]"><BsSliders size={15} /></span>
-            <span className="cursor-pointer">Djemaa boost</span>
+            <span className="cursor-pointer ">Djemaa boost</span>
           </div>
 
           {!currentUser?.isSeller &&

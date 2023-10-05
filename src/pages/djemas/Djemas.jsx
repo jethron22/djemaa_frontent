@@ -14,8 +14,10 @@ import LoginUserDataDjemaCard from "../../skeleton/LoginUserDataDjemaCard";
 import ReactPaginate from "react-paginate";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import DjemasSecondSection from "./DjemasSecondSection";
+import DjemaThirdSection from "./DjemaThirdSection";
+import { cardData } from "./cardData";
 
-function Djemas() {
+function Djemas({item}) {
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState();
   const minRef = useRef();
@@ -59,6 +61,7 @@ function Djemas() {
 
   useEffect(() => {
     refetch()
+
   }, [sort, page, data])
 
   const apply = () => {
@@ -77,8 +80,6 @@ function Djemas() {
   // THIS FUNCTION  DISPLAY NUMBER OF SERVICES && CATEGORIES PUBLISHED, IN AN ARRAY
 
   const arrayLength = data?.length
-
-
 
   return (
     <div>
@@ -134,11 +135,11 @@ function Djemas() {
                   )}
 
 
-              </div>
+                </div>
                 <div className="left">
                   <span>Budget</span>
-                  <input ref={minRef} type="number" placeholder="Min." />
-                  <input ref={maxRef} type="number" placeholder="Max." />
+                  <input onKeyDown={apply} ref={minRef} type="number" placeholder="Min." />
+                  <input onKeyDown={apply} ref={maxRef} type="number" placeholder="Max." />
                   <button onClick={apply}>Trouver</button>
                 </div>
               </div>
@@ -227,6 +228,17 @@ function Djemas() {
 
       <div className="mt-20">
         <DjemasSecondSection />
+      </div>
+      <div className="flex justify-center mx-20">
+        <div className="mt-20 flex w-[1200px] justify-between gap-5 ">
+        
+
+              <DjemaThirdSection  />
+              <DjemaThirdSection  />
+              <DjemaThirdSection  />
+
+
+        </div>
       </div>
     </div>
   )

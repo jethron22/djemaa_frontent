@@ -32,7 +32,7 @@ function MyDjemas() {
 
   const mutation = useMutation({
     mutationFn: (id) => {
-      return newRequest.delete(`/djemas/${id}`)
+      newRequest.delete(`/djemas/${id}`)
     },
 
     onSuccess: () => {
@@ -41,11 +41,13 @@ function MyDjemas() {
 
     }
 
+  
   })
+
 
   const handleDelete = (id) => {
 
-    mutation.mutate(id)
+     mutation.mutate(id)
 
   }
 
@@ -112,7 +114,7 @@ function MyDjemas() {
               <td>{djema?.title}</td>
               <td>{djema?.price}$</td>
               <td>{djema?.sales}</td>
-              <td >
+              <td onClick={handleDelete}>
                 <BsFillTrash3Fill size={20} className="ml-3 cursor-pointer" color="red" onClick={() => handleDelete(djema._id)} />
               </td>
             </tr>

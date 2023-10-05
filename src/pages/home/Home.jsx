@@ -16,6 +16,11 @@ function Home() {
       <TrustedBy />
 
       <div className='mt-28'>
+       <div className=' text-4xl font-semibold text-gray-600 mx-14  mb-10'>
+
+       <p>Développez votre Business Maintenant,</p>
+
+       </div>
         <Slide />
       </div>
       <div className="features">

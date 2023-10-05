@@ -74,15 +74,13 @@ const SuccessModal = () => {
                 </div>
                 <div className="bg-gray-50 px-5 py-4 sm:flex sm:flex-row-reverse sm:px-6">
                   
-                    <div
-                      type="button"
-                      
-                      className="inline-flex w-full cursor-pointer justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold  text-white shadow-sm hover:bg-green-800 sm:ml-3 sm:w-auto"
-                      onClick={() => setOpen(false)}
-                    >
+                <button onClick={()=> setOpen(false)}
+        type="button"
+        className="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]"
+      >
                      Merci, j'ai compris
 
-                    </div>
+                    </button>
                  
                 </div>
               </Dialog.Panel>

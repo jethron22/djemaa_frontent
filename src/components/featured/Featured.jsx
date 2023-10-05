@@ -1,11 +1,14 @@
 import React, { useState, useReducer } from "react";
 import "./Featured.scss";
 import { useNavigate } from "react-router-dom";
-import djemaa_women_freelancer from "./djemaa_women_freelancer.png"
+import djemaa_women_freelancer from "./djemaa_women_freelancer.png";
+import Typewriter from 'typewriter-effect';
 
 
 
 function Featured() {
+
+  const [text, setText] = useState("Hello word here !!")
 
   const handleChange = (e) => {
 
@@ -20,7 +23,7 @@ function Featured() {
   const navigate = useNavigate()
   const handleSubmit = () => {
 
-  navigate(`/djemas?search=${input}`)
+    navigate(`/djemas?search=${input}`)
 
   }
 
@@ -31,6 +34,18 @@ function Featured() {
           <h1 className="font font-extrabold">
             Trouvez un meilleur <span className="text-green-400">talent </span> pour realiser votre projet
           </h1>
+
+          <Typewriter
+            options={{
+              strings: [text],
+              autoStart: true,
+              loop: true,
+            }}
+
+            className="font-bold text-green-500 text-6xl"
+
+          />
+
           <div className="search">
             <div className="searchInput w-[470px]">
               <img src="./img/icon-search.png" alt="" />
@@ -43,7 +58,7 @@ function Featured() {
           </div>
 
           <div className="categories">
-            
+
             <button onClick={handleChange} target="blank" value="Animation 3D" name="Animez tout ce que vous voulez, comme de la magie, avec des pros.." id="Art > Animation 3D">Animation 3D</button>
 
             <button onClick={handleChange} target="blank" value="Wordpress" name="Mettez rapidemment votre site en ligne avec Wordpress" id="developpement web > wordpress">WordPress</button>

@@ -52,7 +52,7 @@ function Login() {
                 <label htmlFor='' class="sr-only"> votre nom </label>
                 <input className='' onChange={(e) => setUsername(e.target.value)}
 
-                  class="border-solid border-green-700 w-[100%] border rounded px-2 py-3" type="text" name="usern" placeholder="ex: Julienne" required />
+                  class="border-solid border-green-700 w-[100%] border outline-none rounded px-2 py-3" type="text" name="usern" placeholder="ex: Julienne" required />
               </div>
 
               <div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 // import upload from '../../utils/upload'
 import newRequest from "../../utils/newRequest"
 import { useNavigate } from 'react-router-dom'
+import { TEInput } from "tw-elements-react";
 
 
 function Register() {
@@ -62,19 +63,30 @@ function Register() {
             <p className='text-3xl text-gray-600 font-bold'>Créer un nouveau compte</p>
             <br />
             <p >
-              <label htmlFor=''>Nom</label>
+
               <br />
-              <input onChange={handleChange} placeholder='ex: william' className='w-full rounded  border-none bg-slate-200' type='text' name='username'></input>
+              <TEInput
+                size='lg'
+                id="exampleFormControlInputText"
+                label="Votre nom" onChange={handleChange} placeholder='ex: william' className='w-full rounded  border-none bg-slate-200' type='text' name='username'></TEInput>
             </p>
             <p>
-              <label htmlFor=''>Email</label>
+
               <br />
-              <input onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='rounded   w-full border-none bg-slate-200' type='email' name='email'></input>
+              <TEInput
+                size='lg'
+                id="exampleFormControlInputEmail"
+                label="Entrez votre email"
+                onChange={handleChange} placeholder='ex: williamsmith@gmail.com' className='rounded   w-full border-none bg-slate-200' type='email' name='email'>
+              </TEInput>
             </p>
             <p>
-              <label htmlFor=''>Mot de passe</label>
               <br />
-              <input onChange={handleChange} placeholder='mettez un mot de passe' className='rounded   w-full border-none bg-slate-200' type='password' name='password'></input>
+              <TEInput
+                size='lg'
+                id="exampleFormControlInputPassword"
+                label="Créer un mot de passe"
+                onChange={handleChange} placeholder='mettez un mot de passe' className='rounded   w-full border-none bg-slate-200' type='password' name='password'></TEInput>
             </p>
             {/* <p className=''>
             <label htmlFor=''>Photo de profil</label>
@@ -82,9 +94,14 @@ function Register() {
             <input onChange={(e)=> setFile(e.target.files[0])} className='w-full border-[1.5px] border-gray-300 flex flex-col p-2' type='file' name='picture'></input>
            </p> */}
             <p>
-              <label htmlFor=''>Pays</label>
+
               <br />
-              <input onChange={handleChange} placeholder='votre pays ici..' className='rounded w-full border-none bg-slate-200' type='text' name='country'></input>
+              <TEInput
+                size='lg'
+                label='Votre pays'
+                onChange={handleChange} className='rounded w-full border-none bg-slate-200' placeholder='ex: Kenya' type='text' name='country'>
+
+              </TEInput>
             </p>
             <p className='hidden md:flex md:mt-6'>
 
@@ -113,14 +130,26 @@ function Register() {
             </p>
 
             <p className='mb-3'>
-              <label htmlFor=''>Téléphone</label>
+
               <br />
-              <input onChange={handleChange} placeholder='ex: +243971154076' className='rounded w-full border-none bg-slate-200' type='number' name='phone'></input>
+              <TEInput
+                size='lg'
+                label='Entrez votre numéro de téléphone'
+                onChange={handleChange} placeholder='ex: +243971154076' className='rounded w-full border-none bg-slate-200' type='tel' name='phone'></TEInput>
             </p>
-            <p>
-              <label htmlFor=''>Description de vous</label>
+            <p className=''>
+
               <br />
-              <textarea onChange={handleChange} className='w-full rounded h-[150px] border-none bg-slate-200 ' placeholder='...Decrivez-vous ici en tant que prestataire de service. Ceci apparaitra sur votre profil.' type='text' name='desc'></textarea>
+              <div className='mb-3'>
+                <label className='text-gray-600'>Décrivez votre profil ici</label>
+              </div>
+
+              <textarea onChange={handleChange}
+                className="peer border-2 block min-h-[auto] w-full rounded border-1 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:border-neutral-600 focus:border-primary"
+                id="exampleFormControlTextarea13"
+                rows={3}
+              >
+              </textarea>
             </p>
 
             <p className='md:hidden sm:flex'>

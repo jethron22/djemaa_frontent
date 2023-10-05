@@ -3,9 +3,9 @@ import React from 'react'
 
 function LoginUserDataDjemaCard() {
     return (
-        <div className='flex items-start justify-between flex-wrap w-full'>
+        <div className='flex justify-center flex-wrap m-auto'>
 
-                    <div className="flex items-center gap-2 flex-wrap">
+                    <div className="flex items-center justify-center w-[1200px] gap-7 flex-wrap">
 
                         {/* SKELETON WHEN LOADING DJEMACARD DATA */}
 

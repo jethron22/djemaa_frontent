@@ -7,9 +7,8 @@ export const cards = [
     id: 1,
     title: "Design Graphique",
     desc: "Retouchez votre image",
-    img: "https://scontent.fkgl4-1.fna.fbcdn.net/v/t39.30808-6/371923071_1814080875655563_8202494068107398379_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeHwhol6JYPo9DH9MwXV4fCUlDSrvIBlynGUNKu8gGXKccqeMGpHg2UyyH7RO1A8DgZTEzQDqskW_aUgqJop5O0n&_nc_ohc=x66csxwrYrcAX8poFOc&_nc_ht=scontent.fkgl4-1.fna&oh=00_AfD3J_Zse8yMssa70erg_FwPJqvZE2Pze8WSMgkZaUZh0w&oe=64FE3031"
+    img: "https://img.freepik.com/photos-gratuite/photographe-artiste-afro-americain-casque-retouchant-images-createurs-aide-logiciel-post-production-numerique-jeune-editeur-illustrateurs-editant-photographies-creatives-travaillant-distance-depuis-chez-soi_482257-28563.jpg?w=360&t=st=1696505501~exp=1696506101~hmac=e433ba5797c8ac1774eb3bdeafd12a964af31b2b1e0672dd1366d2f1d3e3b2e6"
   },
-
   
   {
     id: 2,
