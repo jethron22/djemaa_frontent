@@ -49,7 +49,12 @@ const DjemaCard = ({ item }) => {
 
           (<div className="user flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <BsPersonCircle color="gray" size={35} />
+              <img
+
+              src= {data.img || <BsPersonCircle color="gray" size={35}  />}
+              
+              />
+              
               <span className="font-semibold text-black">{data.username}</span>
             </div>
             <div className="flex bg-gray-500 p-1 rounded-2xl text-white ">

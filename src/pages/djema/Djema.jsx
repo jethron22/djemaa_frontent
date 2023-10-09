@@ -229,7 +229,15 @@ function Djema() {
                   "chargement de l'utilisateur..."
 
                   : <div className="user">
-                    {currentUser.img || <BsPersonCircle color="gray" size={35} />}
+
+
+                    <div className="w-10 h-10">
+                      <img
+                        className="rounded-3xl"
+                        src={dataUser?.img || <BsPersonCircle color="gray" size={35} />}
+
+                      />
+                    </div>
 
                     <span>
                       {dataUser?.username}
@@ -252,12 +260,14 @@ function Djema() {
                       ) : null}
                     </div>
                   </div>}
+
+
               <div>
                 {/* <Slider {...settings}> */}
                 <div className="slider">
                 </div>
                 <div >
-                  <img src="https://img.freepik.com/photos-premium/main-masculine-touchant-dans-concept-service_220873-7826.jpg?w=740" />
+                  <img src={data?.images} />
                 </div>
                 <div>
 
@@ -269,7 +279,11 @@ function Djema() {
               {isLoadingUser ? "Chargement en cours.." : erroUser ? "chargement de l'utilisateur..." : <div className="seller">
                 <h2>Au sujet du prestataire </h2>
                 <div className="user">
-                  {currentUser.img || <BsPersonCircle color="gray" size={65} />}
+                  <img
+
+                    src={dataUser?.img || <BsPersonCircle color="gray" size={35} />}
+
+                  />
                   <div className="info">
                     <span>{dataUser?.username}</span>
                     <div className="stars items-center">
@@ -315,9 +329,19 @@ function Djema() {
                           <TEModalContent>
                             <TEModalHeader>
                               {/* <!--Modal title--> */}
-                              <h5 className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200">
-                                Écrire à {dataUser.username}
-                              </h5>
+                              <div className="text-xl flex w-full font-medium leading-normal text-neutral-800 dark:text-neutral-200">
+                                <span className="flex w-32 h-10">
+                                  <img
+                                    className="rounded-3xl"
+                                    src={dataUser?.img || <BsPersonCircle color="gray" size={35} />}
+
+                                  />
+                                </span>
+                                <div className="mt-4 text-2xl">
+                                  <span className="">{dataUser.username}</span>
+                                </div>
+
+                              </div>
                               {/* <!--Close button--> */}
                               <button
                                 type="button"
@@ -403,7 +427,11 @@ function Djema() {
 
                       <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
 
-                        {currentUser.img || <BsPersonCircle color="gray" size={118} />}
+                        <img
+
+                          src={dataUser?.img || <BsPersonCircle color="gray" size={35} />}
+
+                        />
 
                       </div>
                       <div class="text-center mt-2">
@@ -466,11 +494,11 @@ function Djema() {
                         </div>
                       ))
                     }
-                    
+
 
                     <div className="flex items-center">
 
-                      <button  className="bg-green-700 w-full p-3 text-white font-semibold rounded mt-5">Payer {data?.price} $ pour ce service
+                      <button className="bg-green-700 w-full p-3 text-white font-semibold rounded mt-5">Payer {data?.price} $ pour ce service
                       </button>
                     </div>
                     {/* <div className="w-full">

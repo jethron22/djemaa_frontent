@@ -14,8 +14,14 @@ function WelcomePage() {
         <div className='flex justify-center m-auto'>
             <Link to="/">
                 <div class="flex justify-center m-auto p-10 bg-gray-200 rounded flex-col mt-12 ">
-                    <div className='flex justify-center mx-20 w-full'>
-                        <p className='text-3xl w-2/3'> <BsPersonCircle size={60} color='green' /></p>
+                    <div className='flex justify-center  w-full'>
+                        <p className='text-3xl w-24 h-24 rounded-3xl  flex justify-center mx-10'>
+                            <img 
+                                 className='rounded-3xl'
+                           src = {currentUser.img || <BsPersonCircle size={60} color='green' />}
+                        
+                        />
+                        </p>
                     </div>
                     {ModalView}
                     <div className='mt-10 justify-center m-auto'>

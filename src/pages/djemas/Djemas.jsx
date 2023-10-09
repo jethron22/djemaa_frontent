@@ -149,7 +149,7 @@ function Djemas({item}) {
               {isLoading ? "chargement en cours" : error ? "Erreur lors de chargement" : <div className="flex justify-between ">
 
                 {/* NUMBER OF SERVICES DISPLAYED HERE */}
-                <span className="text-gray-600">Actuellement, {arrayLength} services disponibles</span>
+                <span className="text-gray-600 font-semibold"><span className="text-green-500">{arrayLength}</span> services disponibles</span>
 
                 <span className="mx-20">
                   <ReactPaginate

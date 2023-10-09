@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import newRequest from "../../utils/newRequest"
 import { useNavigate } from 'react-router-dom'
 import { TEInput } from "tw-elements-react";
+import upload from '../../utils/upload';
 
 
 function Register() {
@@ -12,7 +13,7 @@ function Register() {
     username: "",
     email: "",
     password: "",
-    // img: "",
+    img: "",
     country: "",
     isSeller: false,
     desc: ""
@@ -30,21 +31,23 @@ function Register() {
 
 
   const handleSeller = (e) => {
-    setUser(prev => {
+    setUser((prev) => {
       return { ...prev, isSeller: e.target.checked }
     })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
 
-    // const url = await  upload(file);
+    e.preventDefault();
+
+    const url = await upload(file);
 
     try {
 
-      newRequest.post("/auth/register", {
+      await newRequest.post("/auth/register", {
 
         ...user,
-        // img: url
+        img: url
       });
 
       navigate("/")
@@ -88,11 +91,11 @@ function Register() {
                 label="Créer un mot de passe"
                 onChange={handleChange} placeholder='mettez un mot de passe' className='rounded   w-full border-none bg-slate-200' type='password' name='password'></TEInput>
             </p>
-            {/* <p className=''>
+            <p className=''>
             <label htmlFor=''>Photo de profil</label>
             <br />
-            <input onChange={(e)=> setFile(e.target.files[0])} className='w-full border-[1.5px] border-gray-300 flex flex-col p-2' type='file' name='picture'></input>
-           </p> */}
+            <input onChange={(e)=> setFile(e.target.files[0])} className='w-full border-[1.5px] border-green-600 flex flex-col p-2' type='file' name='img'></input>
+           </p>
             <p>
 
               <br />

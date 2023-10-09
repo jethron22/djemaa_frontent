@@ -82,7 +82,12 @@ function Navbar() {
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
 
-              {currentUser.img || <BsPersonCircle color="gray" size={35} />}
+              <img
+
+                src={currentUser.img || <BsPersonCircle color="gray" size={35} />}
+
+              />
+
 
               <span className=""> Bonjour {currentUser?.username} </span>
               <span><AiFillCaretDown /></span>
@@ -113,8 +118,8 @@ function Navbar() {
                 )}
                 <Link to="/djemas?cat" target="blank">
                   <div className="link flex items-center gap-2">
-                  <span><BsArrowsFullscreen /></span>
-                    <span>Tous les Djemaas</span> 
+                    <span><BsArrowsFullscreen /></span>
+                    <span>Tous les Djemaas</span>
                   </div>
                 </Link>
                 <Link className="link flex items-center gap-2 " to="/commandes">

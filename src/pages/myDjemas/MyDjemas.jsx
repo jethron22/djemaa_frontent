@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./mydjemas.scss";
 import getCurrentUser from "../../utils/getCurrentUser";
-import { BsFillTrash3Fill } from "react-icons/bs";
+import { BsFillTrash3Fill, BsPlusCircleFill } from "react-icons/bs";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
+import DeleteModal from "./DeleteModal";
+
 
 function MyDjemas() {
 
@@ -19,11 +21,10 @@ function MyDjemas() {
     queryFn: () =>
       newRequest.get(`/djemas?userId=${currentUser._id}`).then((res) => {
         return res.data;
-      }).catch((error) => {
-        setError(error.response.data)
-      }),
+      })
 
   });
+  const DeleteDjema = DeleteModal()
 
   useEffect(() => {
     refetch()
@@ -41,13 +42,13 @@ function MyDjemas() {
 
     }
 
-  
+
   })
 
 
   const handleDelete = (id) => {
-
-     mutation.mutate(id)
+    
+    mutation.mutate(id)
 
   }
 
@@ -70,7 +71,7 @@ function MyDjemas() {
         <span className="mr-3 ml-3 font-semibold text-green-600"> Chargement de vos services </span>
       </div> : error ? <div className="flex justify-center items-center m-auto mt-20 ">
 
-      
+
         <span className="mr-3 ml-3 font-semibold text-red-600"> Erreur lors de chargement de vos services..</span>
       </div> : (<div className="container">
         <div className="title">
@@ -92,6 +93,7 @@ function MyDjemas() {
             </div>
           )}
         </div>
+
         {isLoading ? "Loading" : error ? "Erreur lors de chargement de vos services" : <table>
           <tr>
             <th>Image</th>
@@ -100,6 +102,8 @@ function MyDjemas() {
             <th>Terminés</th>
             <th>Supprimer</th>
           </tr>
+
+
           {data?.map(djema =>
 
           (
@@ -114,13 +118,37 @@ function MyDjemas() {
               <td>{djema?.title}</td>
               <td>{djema?.price}$</td>
               <td>{djema?.sales}</td>
-              <td onClick={handleDelete}>
-                <BsFillTrash3Fill size={20} className="ml-3 cursor-pointer" color="red" onClick={() => handleDelete(djema._id)} />
+              <td onClick={handleDelete} >
+                {isLoading ? <div >
+                 
+                </div> : error ? "erreur lors de la supression de ce djema" : <BsFillTrash3Fill size={20} className="ml-3 cursor-pointer" color="red" onClick={() => handleDelete(djema._id)} refetch />}
               </td>
             </tr>
           ))}
 
         </table>}
+
+
+        <div className="flex justify-center mt-20">
+
+          {data.length === 0 &&
+            <div className=''>
+              <div  >
+                <p>
+                  <span>
+                    <Link to={"/add-djemaa"}>
+                      <span className="underline text-green-600 font-semibold">
+                        <BsPlusCircleFill size={50} /></span></Link>
+                  </span>
+                </p>
+
+              </div>
+            </div>
+
+          }
+        </div>
+
+
       </div>)}
     </div>
   );

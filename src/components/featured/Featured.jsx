@@ -8,9 +8,10 @@ import Typewriter from 'typewriter-effect';
 
 function Featured() {
 
-  const [text, setText] = useState("Hello word here !!")
+  const [text, setText] = useState("..Et c'est maintenant ou Jamais...")
+  const [secondText, setSecondText] = useState(" Ce qui vous manque, c'est un professionnel. ")
 
-  const handleChange = (e) => {
+  const handleChange = (e) => { 
 
     const cat = e.target.value;
     const name = e.target.name;
@@ -34,17 +35,20 @@ function Featured() {
           <h1 className="font font-extrabold">
             Trouvez un meilleur <span className="text-green-400">talent </span> pour realiser votre projet
           </h1>
-
-          <Typewriter
+<span className="text-2xl italic text-green-400">
+<Typewriter 
             options={{
-              strings: [text],
+              strings: [text, secondText],
               autoStart: true,
               loop: true,
+              
             }}
 
-            className="font-bold text-green-500 text-6xl"
+          
 
           />
+</span>
+        
 
           <div className="search">
             <div className="searchInput w-[470px]">
